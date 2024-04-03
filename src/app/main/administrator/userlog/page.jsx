@@ -1,11 +1,10 @@
-import Header from '@/components/Header'
+import TableUserLog from '@/components/userlog/TableUserlog'
 import React from 'react'
 
 const page = () => {
   return (
     <div>
-        <Header title="user"/>
-        Page user
+      <TableUserLog />
     </div>
   )
 }
