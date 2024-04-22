@@ -16,7 +16,7 @@ const TableUserLog = () => {
 
     return (
         <div>
-            <table className="w-full text-center">
+            <table className="w-full text-center mt-5">
                 <thead>
                     <tr className="border-b-2 bg-blue-300">
                         <th className="py-2 px-4">No</th>

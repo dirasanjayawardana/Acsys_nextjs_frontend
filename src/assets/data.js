@@ -21,27 +21,33 @@ export const sidebarData = [
         pages: [
             {
                 id_active: 2,
-                link: '/main/applications/tablebank',
+                link: '/main/applications/corebanking',
                 icon: <FiTable size={20} />,
-                name: "Table Bank",
+                name: "Core Banking",
             },
             {
                 id_active: 3,
-                link: '/main/applications/tablechannel',
+                link: '/main/applications/memphis',
                 icon: <FiTable size={20} />,
-                name: "Table Channel",
+                name: "Memphis",
             },
             {
                 id_active: 4,
-                link: '/main/applications/tabledati2',
+                link: '/main/applications/abiya',
                 icon: <FiTable size={20} />,
-                name: "Table Dati-2",
+                name: "Abiya",
             },
             {
                 id_active: 5,
-                link: '/main/applications/tablecabang',
+                link: '/main/applications/mobilebanking',
                 icon: <FiTable size={20} />,
-                name: "Table Cabang",
+                name: "Mobile Banking",
+            },
+            {
+                id_active: 6,
+                link: '/main/applications/klikbisnis',
+                icon: <FiTable size={20} />,
+                name: "Klik Bisnis",
             },
             
         ]
@@ -52,7 +58,7 @@ export const sidebarData = [
         header: "Status",
         pages: [
             {
-                id_active: 6,
+                id_active: 7,
                 link: '/status/satusapprovement',
                 icon: <FiCheckSquare size={20}/>,
                 name: "Status Approvement",
@@ -68,13 +74,13 @@ export const sidebarAdmin = [
         header: "Administrator",
         pages: [
             {
-                id_active: 1,
+                id_active: 8,
                 link: '/main/administrator/userlist',
                 icon: <FiUsers size={20} />,
                 name: "User List",
             }, 
             {
-                id_active: 1,
+                id_active: 9,
                 link: '/main/administrator/userlog',
                 icon: <FiUserCheck size={20} />,
                 name: "User Log",
