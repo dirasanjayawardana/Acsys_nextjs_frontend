@@ -1,8 +1,11 @@
+import FormEditTrib from '@/components/corebanking/FormEditTrib'
 import React from 'react'
 
 const page = () => {
   return (
-    <div>Trib</div>
+    <div>
+      <FormEditTrib />
+    </div>
   )
 }
 
