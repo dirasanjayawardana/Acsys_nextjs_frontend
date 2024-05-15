@@ -1,11 +1,15 @@
 "use client";
 import React, { useState } from "react";
+import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import logo from "../../assets/logo.png";
 import { FiLock, FiUser } from "react-icons/fi";
 import axios from "axios";
 
 const Page = () => {
+
+  const router = useRouter();
+
   const [form, setForm] = useState({
     username: "",
     password: "",
@@ -13,11 +17,9 @@ const Page = () => {
 
   const handleLogin = async () => {
     try {
-      const response = await axios.post(
-        "http://localhost:5001/api/login",
-        form
-      );
-      alert("login success");
+      const response = await axios.post("http://localhost:5001/api/login", form);
+      document.cookie = `token=; expires=; path=/`;
+      router.push("/main")
     } catch (error) {
       alert(error);
     }
