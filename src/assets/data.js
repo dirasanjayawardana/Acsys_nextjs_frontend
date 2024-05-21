@@ -1,9 +1,9 @@
-import { FiHome, FiTable, FiCheckSquare, FiLogOut, FiUsers, FiUserCheck } from "react-icons/fi";
+import { FiHome, FiCheckSquare, FiUsers, FiUserCheck } from "react-icons/fi";
+import { BsGrid } from "react-icons/bs";
 
 export const sidebarData = [
     {
         link: '/dashboard',
-        // icon: <MdOutlineSpaceDashboard />,
         header: "Dashboard",
         pages: [
             {
@@ -15,46 +15,25 @@ export const sidebarData = [
         ]
     },
     {
-        link: '/aplications',
-        // icon: <FiBookmark />,
-        header: "Applications",
+        link: '/parameters',
+        header: "Parameter",
         pages: [
             {
                 id_active: 2,
-                link: '/main/applications/corebanking',
-                icon: <FiTable size={20} />,
-                name: "Core Banking",
+                link: '/main/parameters/cabang',
+                icon: <BsGrid size={20} />,
+                name: "Cabang",
             },
             {
-                id_active: 3,
-                link: '/main/applications/memphis',
-                icon: <FiTable size={20} />,
-                name: "Memphis",
+                id_active: 2,
+                link: '/main/parameters/produk',
+                icon: <BsGrid size={20} />,
+                name: "Produk",
             },
-            {
-                id_active: 4,
-                link: '/main/applications/abiya',
-                icon: <FiTable size={20} />,
-                name: "Abiya",
-            },
-            {
-                id_active: 5,
-                link: '/main/applications/mobilebanking',
-                icon: <FiTable size={20} />,
-                name: "Mobile Banking",
-            },
-            {
-                id_active: 6,
-                link: '/main/applications/klikbisnis',
-                icon: <FiTable size={20} />,
-                name: "Klik Bisnis",
-            },
-            
         ]
     },
     {
         link: '/status',
-        // icon: <FiBookmark />,
         header: "Status",
         pages: [
             {
@@ -70,7 +49,6 @@ export const sidebarData = [
 export const sidebarAdmin = [
     {
         link: '/administrator',
-        // icon: <MdOutlineSpaceDashboard />,
         header: "Administrator",
         pages: [
             {

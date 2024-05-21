@@ -6,15 +6,20 @@ import { IoIosArrowBack, IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { sidebarAdmin, sidebarData } from "@/assets/data";
 import { useStateContext } from "@/contexts/ContexProvider";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { FiLogOut } from "react-icons/fi";
 
 const Sidebar = () => {
+    const router = useRouter();
     const { showSideBar, setShowSideBar, setHeader } = useStateContext();
 
     const pathname = usePathname();
-
     const [showApps, setShowApps] = useState(true);
+
+    const handleLogout = () => {
+        document.cookie = "ACSYS-TOKEN=; Max-Age=0; Path=/";
+        router.push("/login");
+    };
 
     return (
         <div
@@ -39,34 +44,43 @@ const Sidebar = () => {
                         <div className="font-bold text-xl text-gray-500 flex justify-between items-center">
                             <h1>{items.header}</h1>
                             {items.header === "Applications" && (
-                                <button onClick={() => setShowApps(!showApps)} className="p-2 rounded-xl hover:bg-gray-200">
-                                    {showApps ? <IoIosArrowUp size={16} /> : <IoIosArrowDown size={16} />}
-                                    
+                                <button
+                                    onClick={() => setShowApps(!showApps)}
+                                    className="p-2 rounded-xl hover:bg-gray-200"
+                                >
+                                    {showApps ? (
+                                        <IoIosArrowUp size={16} />
+                                    ) : (
+                                        <IoIosArrowDown size={16} />
+                                    )}
                                 </button>
                             )}
                         </div>
 
                         {items.pages.map((item, index) => (
-                            <div key={index}
-                            className={`transition-all duration-300 ${
-                                items.header === "Applications" && !showApps ? "hidden opacity-0 -translate-y-10 pointer-events-none absolute" : "opacity-100 pointer-events-auto"
-                            }`}>
-                            <Link
-                                
-                                href={item.link}
-                                onClick={() => setHeader(item.name)}
+                            <div
+                                key={index}
+                                className={`transition-all duration-300 ${
+                                    items.header === "Applications" && !showApps
+                                        ? "hidden opacity-0 -translate-y-10 pointer-events-none absolute"
+                                        : "opacity-100 pointer-events-auto"
+                                }`}
                             >
-                                <div
-                                    className={`${
-                                        pathname === item.link
-                                            ? "bg-blue-500 text-white font-bold"
-                                            : ""
-                                    } flex items-center gap-2 mt-2 ml-3 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-xl hover:font-bold`}
+                                <Link
+                                    href={item.link}
+                                    onClick={() => setHeader(item.name)}
                                 >
-                                    {item.icon}
-                                    <h3>{item.name}</h3>
-                                </div>
-                            </Link>
+                                    <div
+                                        className={`${
+                                            pathname === item.link
+                                                ? "bg-blue-500 text-white font-bold"
+                                                : ""
+                                        } flex items-center gap-2 mt-2 ml-3 hover:bg-blue-500 hover:text-white px-3 py-2 rounded-xl hover:font-bold`}
+                                    >
+                                        {item.icon}
+                                        <h3>{item.name}</h3>
+                                    </div>
+                                </Link>
                             </div>
                         ))}
                     </div>
@@ -98,15 +112,17 @@ const Sidebar = () => {
                         ))}
                     </div>
                 ))}
-                <Link href="/login">
-                    <div className="flex items-center gap-2 mt-2 hover:bg-blue-500 hover:text-white px-3 py-2 hover:font-bold font-semibold border-t-2 border-gray-400">
-                        <FiLogOut />
-                        <h3>Logout</h3>
-                    </div>
-                </Link>
+                <button
+                    type="button"
+                    className="flex items-center gap-2 mt-2 hover:bg-blue-500 hover:text-white rounded-xl px-3 py-2 hover:font-bold font-semibol"
+                    onClick={handleLogout}
+                >
+                    <FiLogOut />
+                    <h3>Logout</h3>
+                </button>
             </div>
 
-            <div className="text-center">
+            <div className="text-center mt-10">
                 <p className="text-gray-400 text-sm">---Always Control---</p>
             </div>
         </div>

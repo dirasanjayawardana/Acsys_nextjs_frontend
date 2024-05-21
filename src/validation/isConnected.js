@@ -2,27 +2,24 @@
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import { useDispatch } from 'react-redux';
 import Loading from '@/app/loading';
 
 export const IsConnected = ({ children }) => {
     const router = useRouter();
-    const dispatch = useDispatch();
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const token = document.cookie.split('; ').find(row => row.startsWith('token='))?.split('=')[1];
-
+        const token = document.cookie.split('; ').find(row => row.startsWith('ACSYS-TOKEN='))?.split('=')[1];
+        
         if (token) {
-            // const decodedToken = jwt_decode(token);
             // const currentDate = Date.now() / 1000;
 
-            // if (decodedToken.exp < currentDate || !decodedToken.isConnected) {
+            // if (user.tokenExpiredAt < currentDate || user.status!=process.env.NEXT_PUBLIC_ACSYS_STATUS) {
             //     router.push('/login');
             // } else {
-            //     axios.defaults.headers.common['Authorization'] = token;
-            //     dispatch(updateUser(decodedToken));
+            //     axios.defaults.headers.common['X-API-TOKEN'] = token;
             // }
+            axios.defaults.headers.common['X-API-TOKEN'] = token;
         } else {
             router.push('/login');
         }

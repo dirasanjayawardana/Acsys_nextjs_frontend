@@ -3,16 +3,16 @@ import SearchBar from "@/components/home/SearchBar";
 import React from "react";
 
 const page = () => {
-    const data = [1, 2, 3, 4, 5, 6, 7, 8];
+    const data = Array.from({ length: 30 }, (_, index) => index);
 
     return (
         <div>
             <SearchBar />
-            <div className="mt-3 grid grid-cols-3 gap-3">
+            <div className="mt-3 grid grid-cols-5 gap-3">
                 {data.map((item, index) => (
-                  <div key={index} className="">
-                    <Card />
-                  </div>
+                    <div key={index} className="">
+                        <Card data={item} />
+                    </div>
                 ))}
             </div>
         </div>
