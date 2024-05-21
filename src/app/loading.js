@@ -4,8 +4,9 @@ import { FiLoader } from 'react-icons/fi'
 
 const loading = () => {
     return (
-        <div className='min-h-screen min-w-full bg-slate-800 text-white flex items-center justify-center'>
-            <FiLoader size={30} className='animate-spin-slow' />
+        <div className='min-h-screen min-w-full bg-gray-300 text-black flex gap-3 items-center justify-center'>
+            <p>Please Wait</p>
+            <FiLoader size={22} className='animate-spin-slow' />
         </div>
     )
 }

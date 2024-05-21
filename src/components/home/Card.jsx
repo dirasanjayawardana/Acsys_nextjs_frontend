@@ -1,11 +1,12 @@
-import React from 'react'
+import React from "react";
+import { FiEdit } from "react-icons/fi";
 
-const Card = () => {
-  return (
-    <div className='bg-blue-200 w-full h-80 rounded-xl'>
+const Card = ({ data }) => {
+    return (
+        <div className="bg-blue-200 w-full h-20 rounded-xl flex gap-2 items-center justify-center font-semibold py-3 px-6">
+           <FiEdit /><p>Parameter {data}</p> 
+        </div>
+    );
+};
 
-    </div>
-  )
-}
-
-export default Card
+export default Card;
