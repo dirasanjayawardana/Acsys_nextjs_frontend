@@ -1,7 +1,7 @@
 import React from "react";
 import { FiPlus, FiSearch } from "react-icons/fi";
 
-const FormSearch = ({ placeholder, setState }) => {
+const FormSearch = ({ placeholder, setState, handleSubmit }) => {
     return (
         <div className="flex justify-between items-center">
             <form className="flex items-center border border-gray-400 rounded-xl">
@@ -14,6 +14,7 @@ const FormSearch = ({ placeholder, setState }) => {
                 <button
                     type="button"
                     className="bg-blue-500 hover:bg-blue-600 p-2 h-full rounded-r-xl text-white"
+                    onClick={handleSubmit}
                 >
                     <FiSearch size={20} />
                 </button>
