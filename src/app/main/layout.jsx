@@ -13,7 +13,7 @@ const Layout = ({ children }) => {
     return (
         <IsConnected>
             <div className="min-h-[100vh] bg-white flex">
-                <div className={`relative ${showSideBar ? "w-[15.8%]" : "w-[0%]"} `}>
+                <div className={`relative ${showSideBar ? "w-[300px]" : "w-0"} `}>
                     <Sidebar />
                 </div>
                 <div className={`${showSideBar ? "w-[84%]" : "w-[100%]"} relative pb-10`}>
