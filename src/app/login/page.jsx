@@ -28,7 +28,7 @@ const Page = () => {
             router.push("/main");
             setIsLoading(false);
         } catch (error) {
-            setErrors(error.response.data.errors);
+            setErrors(error.response);
             setIsLoading(false);
         }
     };
