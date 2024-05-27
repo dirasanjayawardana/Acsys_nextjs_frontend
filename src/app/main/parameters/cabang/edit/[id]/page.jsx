@@ -266,7 +266,6 @@ const page = () => {
             <option>False</option>
           </select>
         </div>
-
       </form>
     </div>
   );
