@@ -322,7 +322,7 @@ const Page = () => {
           <div className="flex gap-3 items-center">
             <label className="w-[220px]">Id Rencana Bagi Hasil Default</label>
             <input
-              type="date"
+              type="text"
               placeholder="Id Rencana Bagi Hasil Default"
               className="input input-sm input-bordered w-[220px]"
             />
@@ -814,7 +814,7 @@ const Page = () => {
               onChange={(e) =>
                 setDataProduk({
                   ...dataProduk,
-                  tanggalAcuanDormants: e.target.value,
+                  tanggalAcuanDormant: e.target.value,
                 })
               }
             />
