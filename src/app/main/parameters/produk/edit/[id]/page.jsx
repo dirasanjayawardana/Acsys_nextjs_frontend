@@ -153,8 +153,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option>True</option>
-                            <option>False</option>
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -165,6 +165,30 @@ const Page = () => {
                             type="text"
                             placeholder="Saldo Minimum Tidak Aktif"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.saldoMinimumTidakAktif}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    saldoMinimumTidakAktif: e.target.value,
+                                })
+                            }
+                        />
+                    </div>
+                    <div className="flex gap-3 items-center">
+                        <label className="w-[220px]">
+                            Jumlah Hari Jadi Tidak Aktif
+                        </label>
+                        <input
+                            type="text"
+                            placeholder="Saldo Minimum Tidak Aktif"
+                            className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.jumlahHariJadiTidakAktif}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    jumlahHariJadiTidakAktif: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -173,6 +197,13 @@ const Page = () => {
                             type="text"
                             placeholder="Saldo Minimum"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.saldoMinimum}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    saldoMinimum: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -181,13 +212,29 @@ const Page = () => {
                             type="text"
                             placeholder="Saldo Maksimum"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.saldoMaksimum}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    saldoMaksimum: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
-                        <label className="w-[220px]">Is IsBackdated</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <label className="w-[220px]">Is Backdated</label>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isBackdated}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isBackdated: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -198,15 +245,31 @@ const Page = () => {
                             type="text"
                             placeholder="Saldo Maksimum"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.jumlahBulanMaksBackdated}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    jumlahBulanMaksBackdated: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is Kena Zakat Bagi Hasil
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isKenaZakatBagiHasil}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isKenaZakatBagiHasil: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -217,13 +280,29 @@ const Page = () => {
                             type="text"
                             placeholder="Presentase Zakat Bagi Hasil"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.presentaseZakatBagiHasil}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    presentaseZakatBagiHasil: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Is Kena Pajak</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isKenaPajak}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isKenaPajak: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -232,121 +311,236 @@ const Page = () => {
                             type="text"
                             placeholder="Tarif Pajak"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.tarifPajak}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    tarifPajak: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Disposisi Bagi Hasil
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>K</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.disposisiBagiHasil}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    disposisiBagiHasil: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="K">K</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Periode Bagi Hasil</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>B</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.periodeBagiHasil}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    periodeBagiHasil: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="B">B</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Jenis Produk</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>T</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.jenisProduk}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    jenisProduk: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">T</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Kode Valuta</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>IDR</option>
-                            <option>USD</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.kodeValuta}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    kodeValuta: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="IDR">IDR</option>
+                            <option value="USD">USD</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Status</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>Active</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.status}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    status: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="Active">Active</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is Produk Berasuransi
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isProdukBerasuransi}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isProdukBerasuransi: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is Produk Partnership
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isProdukPartnership}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isProdukPartnership: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is Override Bagi Hasil Khusus
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isOverrideBagiHasilKhusus}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isOverrideBagiHasilKhusus: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is Override Tarif Pajak
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isOverrideTarifPajak}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isOverrideTarifPajak: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is Override Zakat Bagi Hasil
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isOverrideZakatBagiHasil}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isOverrideZakatBagiHasil: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is Override Disposisi BGH
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
-                        </select>
-                    </div>
-                    <div className="flex gap-3 items-center">
-                        <label className="w-[220px]">
-                            Is Override Disposisi BGH
-                        </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isOverrideDisposisiBGH}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isOverrideDisposisiBGH: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Jarak Periode Bagi Hasil
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.jarakPeriodeBagiHasil}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    jarakPeriodeBagiHasil: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is Override Backdated
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isOverrideBackdated}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isOverrideBackdated: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -354,18 +548,34 @@ const Page = () => {
                             Id Rencana Bagi Hasil Default
                         </label>
                         <input
-                            type="date"
+                            type="text"
                             placeholder="Id Rencana Bagi Hasil Default"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.idRencanaBagiHasilDefault}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    idRencanaBagiHasilDefault: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is Kena Biaya Layanan Umum
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isKenaBiayaLayananUmum}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isKenaBiayaLayananUmum: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -376,20 +586,45 @@ const Page = () => {
                             type="input"
                             placeholder="Id Biaya Layanan Umum"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.idBiayaLayananUmum}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    idBiayaLayananUmum: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">NamaValuta</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>RUPIAH</option>
-                            <option>DOLAR</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.namaValuta}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    namavlauta: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="RUPIAH">RUPIAH</option>
+                            <option value="DOLAR">DOLAR</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Is Produk Kartu</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isProdukKartu}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isProdukKartu: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -398,6 +633,13 @@ const Page = () => {
                             type="text"
                             placeholder="Nama Asuransi"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.namaAsuransi}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    namaAsuransi: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -406,6 +648,13 @@ const Page = () => {
                             type="text"
                             placeholder="Id Partner"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.idPartner}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    idPartner: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -414,6 +663,13 @@ const Page = () => {
                             type="text"
                             placeholder="Nama Grup"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.namaGrup}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    namaGrup: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -422,6 +678,13 @@ const Page = () => {
                             type="text"
                             placeholder="Ins Plan Id"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.insPlanId}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    insPlanId: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -430,6 +693,13 @@ const Page = () => {
                             type="text"
                             placeholder="Ps Plan Id"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.psPlanId}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    psPlanId: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -438,6 +708,13 @@ const Page = () => {
                             type="text"
                             placeholder="Biaya Adm Bulanan"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.biayaAdmBulanan}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    biayaAdmBulanan: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -448,6 +725,13 @@ const Page = () => {
                             type="text"
                             placeholder="Id Tiering Biaya Adm"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.idTieringBiayaAdm}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    idTieringBiayaAdm: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -458,18 +742,33 @@ const Page = () => {
                             type="text"
                             placeholder="Id Tiering Nisbah Bonus"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.idTieringNisbahBonus}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    idTieringNisbahBonus: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is Tiering Biaya Adm
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isTieringBiayaAdm}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isTieringBiayaAdm: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
-
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is Tiering Nisbah Bonus
