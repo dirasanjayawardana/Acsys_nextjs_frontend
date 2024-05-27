@@ -1,8 +1,15 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React from "react";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 
-const Table = ({ headers, data, action }) => {
+const Table = ({ headers, data, action, link }) => {
+    const router = useRouter();
+
+    const handleEdit = (id) => {
+        router.push(`${link}/edit/${id}`);
+    };
+
     return (
         <div className="overflow-auto mx-auto">
             <table className="text-center border-b cursor-pointer">
@@ -26,7 +33,12 @@ const Table = ({ headers, data, action }) => {
                         >
                             {action && (
                                 <td className="py-3 px-6 w-32 flex items-center justify-center gap-3">
-                                    <button className="text-yellow-600 flex flex-col gap-1 items-center justify-center pt-2">
+                                    <button
+                                        onClick={() =>
+                                            handleEdit(item[headers[0]])
+                                        }
+                                        className="text-yellow-600 flex flex-col gap-1 items-center justify-center pt-2"
+                                    >
                                         <FiEdit size={20} />
                                         <p className="text-blue-500">Edit</p>
                                     </button>
