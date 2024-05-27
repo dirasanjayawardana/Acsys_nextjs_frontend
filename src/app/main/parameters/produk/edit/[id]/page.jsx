@@ -1,9 +1,112 @@
+"use client";
+import axios from "axios";
 import Link from "next/link";
-import React from "react";
+import { useParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
 import { FiSave } from "react-icons/fi";
 import { MdOutlineCancel } from "react-icons/md";
 
-const page = () => {
+const Page = () => {
+    const params = useParams();
+    const [dataProduk, setDataProduk] = useState({
+        kodeProduk: "",
+        namaProduk: "",
+        isOnBalanceSheetMode: "",
+        saldoMinimumTidakAktif: "",
+        jumlahHariJadiTidakAktif: "",
+        saldoMinimum: "",
+        saldoMaksimum: "",
+        isBackdated: "",
+        jumlahBulanMaksBackdated: "",
+        isKenaZakatBagiHasil: "",
+        presentaseZakatBagiHasil: "",
+        isKenaPajak: "",
+        tarifPajak: "",
+        disposisiBagiHasil: "",
+        periodeBagiHasil: "",
+        jenisProduk: "",
+        kodeValuta: "",
+        status: "",
+        isProdukBerasuransi: "",
+        isProdukPartnership: "",
+        isOverrideBagiHasilKhusus: "",
+        isOverrideTarifPajak: "",
+        isOverrideZakatBagiHasil: "",
+        isOverrideDisposisiBGH: "",
+        jarakPeriodeBagiHasil: "",
+        isOverrideBackdated: "",
+        idRencanaBagiHasilDefault: "",
+        isKenaBiayaLayananUmum: "",
+        idBiayaLayananUmum: "",
+        namaValuta: "",
+        isProdukKartu: "",
+        namaAsuransi: "",
+        idPartner: "",
+        namaGrup: "",
+        insPlanId: "",
+        psPlanId: "",
+        biayaAdmBulanan: "",
+        idTieringBiayaAdm: "",
+        idTieringNisbahBonus: "",
+        isTieringBiayaAdm: "",
+        isTieringNisbahBonus: "",
+        jenisAkad: "",
+        kodeRencanaAsuransi: "",
+        nisbahBonusDasar: "",
+        setoranAwalMinimum: "",
+        idAsuransi: "",
+        isParamSaldoTidakAktif: "",
+        isOverrideBiayaPenutupan: "",
+        biayaPenutupanRekening: "",
+        sumberBiayaAdm: "",
+        jumlahHariPerTahun: "",
+        kodeDigit: "",
+        isBlokirDebetInternal: "",
+        isBlokirDebetEksternal: "",
+        isBlokirKreditInternal: "",
+        isBlokirKreditEksternal: "",
+        isBiayaSaldoMinimum: "",
+        isBiayaRekeningDormant: "",
+        isBiayaATM: "",
+        isCetakNota: "",
+        isStatusPassbook: "",
+        kolektibilitas: "",
+        isDapatBagiHasil: "",
+        isTidakDormant: "",
+        tanggalAcuanDormant: "",
+        biayaRekeningDormant: "",
+        biayaSaldoMinimum: "",
+        jumlahHariTutupOtomatis: "",
+        isBlokirDebet: "",
+        isBlokirKredit: "",
+        isTutupOtomatisDormant: "",
+        biayaAdmATM: "",
+        biayaKartuATM: "",
+        isBiayaMaterai: "",
+        isOverrideBiayaATM: "",
+        orderMB: "",
+        kodePOFDefault: "",
+        persentaseCadangan: "",
+        isProsesCadangan: "",
+        ekuivalenRate: "",
+        saldoMinimumBagiHasil: "",
+        maxSize: "",
+    });
+
+    useEffect(() => {
+        const getCurrentData = async () => {
+            try {
+                const response = await axios.get(
+                    `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/produk/getproduk?input=${params.id}`
+                );
+                setDataProduk(response.data.data[0]);
+            } catch (error) {
+                console.log(error);
+            }
+        };
+        getCurrentData();
+    }, []);
+
     return (
         <div>
             <div className="bg-gray-200 py-4 px-8 rounded-xl text-blue-500 font-bold text-xl">
@@ -17,6 +120,7 @@ const page = () => {
                             type="text"
                             placeholder="Kode Produk"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.kodeProduk}
                             disabled
                         />
                     </div>
@@ -26,13 +130,29 @@ const page = () => {
                             type="text"
                             placeholder="Nama Produk"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataProduk.namaProduk}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    namaProduk: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is OnBalanceSheetMode
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.isOnBalanceSheetMode}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    isOnBalanceSheetMode: e.target.value,
+                                })
+                            }
+                        >
                             <option>True</option>
                             <option>False</option>
                         </select>
@@ -713,4 +833,4 @@ const page = () => {
     );
 };
 
-export default page;
+export default Page;

@@ -55,6 +55,7 @@ const Page = () => {
                 {dataCabang && !searchResult && (
                     <div className="w-full flex justify-end items-center gap-3">
                         <button
+                            type="button"
                             disabled={currentPage === 1 || startIndex === 0}
                             onClick={() => {
                                 setCurrentPage(currentPage - 1);
@@ -66,6 +67,7 @@ const Page = () => {
                         </button>
                         <h5 className="font-semibold">{currentPage}</h5>
                         <button
+                            type="button"
                             disabled={
                                 startIndex + perPage >= dataCabang[0].maxSize
                             }
