@@ -57,7 +57,7 @@ const Page = () => {
             }
         };
         getCurrentData();
-    }, []);
+    }, [params.id]);
 
     return (
         <div>
