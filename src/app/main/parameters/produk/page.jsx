@@ -89,6 +89,7 @@ const Page = () => {
                         )}
                         data={dataProduk}
                         action={true}
+                        link={"/main/parameters/produk/"}
                     />
                 </div>
             ) : (
@@ -104,6 +105,7 @@ const Page = () => {
                         )}
                         data={searchResult}
                         action={true}
+                        link={"/main/parameters/produk/"}
                     />
                 </div>
             )}
