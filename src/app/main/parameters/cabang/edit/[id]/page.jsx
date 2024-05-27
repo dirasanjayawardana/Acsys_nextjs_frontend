@@ -204,6 +204,15 @@ const page = () => {
         </div>
 
         <div className="flex gap-3 items-center">
+          <label className="min-w-28">Kantor Kode Pos</label>
+          <input
+            type="text"
+            placeholder="Kantor Kode Pos"
+            className="input input-sm input-bordered w-64"
+          />
+        </div>
+
+        <div className="flex gap-3 items-center">
           <label className="min-w-28">Kantor Nama</label>
           <input
             type="text"
