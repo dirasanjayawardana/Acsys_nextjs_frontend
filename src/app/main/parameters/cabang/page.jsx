@@ -90,6 +90,7 @@ const Page = () => {
                         )}
                         data={dataCabang}
                         action={true}
+                        link={"/main/parameters/cabang/"}
                     />
                 </div>
             ) : (
@@ -105,6 +106,7 @@ const Page = () => {
                         )}
                         data={searchResult}
                         action={true}
+                        link={"/main/parameters/cabang/"}
                     />
                 </div>
             )}
