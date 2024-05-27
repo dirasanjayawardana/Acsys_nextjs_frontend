@@ -34,6 +34,7 @@ const Table = ({ headers, data, action, link }) => {
                             {action && (
                                 <td className="py-3 px-6 w-32 flex items-center justify-center gap-3">
                                     <button
+                                        type="button"
                                         onClick={() =>
                                             handleEdit(item[headers[0]])
                                         }
