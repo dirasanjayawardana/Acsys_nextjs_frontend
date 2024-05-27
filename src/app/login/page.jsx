@@ -6,7 +6,7 @@ import logo from "../../assets/logo.png";
 import { FiLoader, FiLock, FiUser } from "react-icons/fi";
 import axios from "axios";
 
-// Affan Punya
+//dita
 const Page = () => {
     const router = useRouter();
 
@@ -29,7 +29,7 @@ const Page = () => {
             router.push("/main");
             setIsLoading(false);
         } catch (error) {
-            setErrors(error.response.data.errors);
+            setErrors(error.response);
             setIsLoading(false);
         }
     };
