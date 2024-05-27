@@ -114,10 +114,18 @@ const Page = () => {
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Status Cabang</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>P</option>
-                            <option>S</option>
-                            <option>B</option>
+                        <select className="select select-sm select-bordered w-[220px]"
+                            value={dataCabang.statusCabang}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    statusCabang: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="P">P</option>
+                            <option value="S">S</option>
+                            <option value="B">B</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -126,13 +134,28 @@ const Page = () => {
                             type="text"
                             placeholder="Sandi BI"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.sandiBi}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    sandiBi: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Zona Waktu</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>B</option>
-                            <option>TA</option>
+                        <select className="select select-sm select-bordered w-[220px]"
+                            value={dataCabang.zonaWaktu}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    zonaWaktu: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="B">B</option>
+                            <option value="TA">TA</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -141,6 +164,13 @@ const Page = () => {
                             type="text"
                             placeholder="User Input"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.userInput}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    userInput: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -149,6 +179,13 @@ const Page = () => {
                             type="text"
                             placeholder="Tanggal Input"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.tanggalInput}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    tanggalInput: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -157,6 +194,13 @@ const Page = () => {
                             type="text"
                             placeholder="Terminal Input"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.terminalInput}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    terminalInput: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -165,6 +209,13 @@ const Page = () => {
                             type="text"
                             placeholder="User Otorisasi"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.userOtorisasi}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    userOtorisasi: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -173,6 +224,13 @@ const Page = () => {
                             type="text"
                             placeholder="Tanggal Otorisasi"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.tanggalOtorisasi}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    tanggalOtorisasi: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -181,6 +239,13 @@ const Page = () => {
                             type="text"
                             placeholder="Terminal Otorisasi"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.terminalOtorisasi}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    terminalOtorisasi: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -189,20 +254,36 @@ const Page = () => {
                             type="text"
                             placeholder="Kode Cabang Induk"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.kodeCabangInduk}
                             disabled
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Status Aktif</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select className="select select-sm select-bordered w-[220px]"
+                            value={dataCabang.statusAktif}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    statusAktif: e.target.value,
+                                })
+                            }>
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Status Otorisasi</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>1</option>
+                        <select className="select select-sm select-bordered w-[220px]"
+                            value={dataCabang.statusOtorisasi}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    statusOtorisasi: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="1">1</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -211,6 +292,13 @@ const Page = () => {
                             type="text"
                             placeholder="Kode Wilayah"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.kodeWilayah}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    kodeWilayah: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -219,6 +307,13 @@ const Page = () => {
                             type="text"
                             placeholder="Kode Kantor"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.kodeKantor}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    kodeKantor: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -227,12 +322,27 @@ const Page = () => {
                             type="text"
                             placeholder="Kode Lokasi"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.kodeLokasi}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    kodeLokasi: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Status Akses</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>O</option>
+                        <select className="select select-sm select-bordered w-[220px]"
+                            value={dataCabang.statusAkses}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    statusAkses: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="O">O</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -243,18 +353,41 @@ const Page = () => {
                             type="text"
                             placeholder="Kode Wilayah kliring"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.kodeWilayahKliring}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    kodeWilayahKliring: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Level Caban</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>0</option>
+                        <select className="select select-sm select-bordered w-[220px]"
+                            value={dataCabang.levelCaban}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    levelCaban: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="0">0</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Level Cabang</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>0</option>
+                        <select className="select select-sm select-bordered w-[220px]"
+                            value={dataCabang.levelCabang}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    levelCabang: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="0">0</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -263,12 +396,27 @@ const Page = () => {
                             type="text"
                             placeholder="ID Sandi Lokasi"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.idSandiLokasi}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    idSandiLokasi: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">ID Sandi BI</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>0</option>
+                        <select className="select select-sm select-bordered w-[220px]"
+                            value={dataCabang.idSandiBi}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    idSandiBi: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="0">0</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -277,6 +425,13 @@ const Page = () => {
                             type="text"
                             placeholder="Kantor Alamat"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.kantorAlamat}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    kantorAlamat: e.target.value,
+                                })
+                            }
                         />
                     </div>
 
@@ -286,6 +441,13 @@ const Page = () => {
                             type="text"
                             placeholder="Kantor Kode Pos"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.kantorKodePos}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    kantorKodePos: e.target.value,
+                                })
+                            }
                         />
                     </div>
 
@@ -295,6 +457,13 @@ const Page = () => {
                             type="text"
                             placeholder="Kantor Nama"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.kantorNama}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    kantorNama: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -303,6 +472,13 @@ const Page = () => {
                             type="text"
                             placeholder="Kantor NPWP"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.kantorNpwp}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    kantorNpwp: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -311,6 +487,13 @@ const Page = () => {
                             type="text"
                             placeholder="Kantor Telepon 1"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.kantorTelepon1}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    kantorTelepon1: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -319,6 +502,13 @@ const Page = () => {
                             type="text"
                             placeholder="Kantor Telepon 2"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.kantorTelepon2}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    kantorTelepon2: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
@@ -327,22 +517,46 @@ const Page = () => {
                             type="text"
                             placeholder="Kantor Telepon 3"
                             className="input input-sm input-bordered w-[220px]"
+                            value={dataCabang.kantorTelepon3}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    kantorTelepon3: e.target.value,
+                                })
+                            }
                         />
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Kantor Tipe</label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>CP</option>
-                            <option>CU</option>
+                        <select className="select select-sm select-bordered w-[220px]"
+                            value={dataCabang.kantorTipe}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    kantorTipe: e.target.value,
+                                })
+                            }
+                        >
+                            <option value="CP">CP</option>
+                            <option value="CU">CU</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">
                             Is Koordinator Kliring
                         </label>
-                        <select className="select select-sm select-bordered w-[220px]">
-                            <option>True</option>
-                            <option>False</option>
+                        <select className="select select-sm select-bordered w-[220px]"
+                            value={dataCabang.isKordinatorKliring}
+                            onChange={(e) =>
+                                setDataCabang({
+                                    ...dataCabang,
+                                    isKordinatorKliring: e.target.value,
+                                })
+                            }
+                        
+                        >
+                            <option value="T">True</option>
+                            <option value="F">False</option>
                         </select>
                     </div>
 
