@@ -255,7 +255,6 @@ const Page = () => {
                             placeholder="Kode Cabang Induk"
                             className="input input-sm input-bordered w-[220px]"
                             value={dataCabang.kodeCabangInduk}
-                            disabled
                         />
                     </div>
                     <div className="flex gap-3 items-center">
