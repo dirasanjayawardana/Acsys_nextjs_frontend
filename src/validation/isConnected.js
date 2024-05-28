@@ -9,17 +9,25 @@ export const IsConnected = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        const token = document.cookie.split('; ').find(row => row.startsWith('ACSYS-TOKEN='))?.split('=')[1];
+        const userid = document.cookie.split('; ').find(row => row.startsWith('ACSYS-USERID='))?.split('=')[1];
         
-        if (token) {
-            // const currentDate = Date.now() / 1000;
+        if (userid) {
+            
+            const getUserInfo = async () => {
+                const response = await axios.get(`${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/secure/users`,
+                {
+                    headers: {
+                        'USER-ID': userid
+                    }
+                });
+                if (response.data.data.status != 1) {
+                    router.push("/login")
+                }
+            }
 
-            // if (user.tokenExpiredAt < currentDate || user.status!=process.env.NEXT_PUBLIC_ACSYS_STATUS) {
-            //     router.push('/login');
-            // } else {
-            //     axios.defaults.headers.common['X-API-TOKEN'] = token;
-            // }
-            axios.defaults.headers.common['X-API-TOKEN'] = token;
+            getUserInfo();
+            
+            axios.defaults.headers.common['USER-ID'] = userid;
         } else {
             router.push('/login');
         }

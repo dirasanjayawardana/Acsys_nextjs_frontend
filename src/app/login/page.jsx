@@ -6,30 +6,45 @@ import logo from "../../assets/logo.png";
 import { FiLoader, FiLock, FiUser } from "react-icons/fi";
 import axios from "axios";
 
-//dita
 const Page = () => {
     const router = useRouter();
 
     const [form, setForm] = useState({
-        username: "",
-        password: "",
+        userid: "",
+        pass: "",
     });
     const [errors, setErrors] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
     const [isAgree, setIsAgree] = useState(false);
 
     const handleLogin = async () => {
+        setIsLoading(true);
+        setErrors(null);
         try {
-            setIsLoading(true);
-            setErrors(null);
-            const response = await axios.post(`${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/login`,
-                form
+            const currentUserInfo = await axios.get(
+                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/secure/users`,
+                {
+                    headers: {
+                        "USER-ID": form.userid,
+                    },
+                }
             );
-            document.cookie = `ACSYS-TOKEN=${response.data.data.token}; expires=; path=/`;
-            router.push("/main");
-            setIsLoading(false);
+
+            if (currentUserInfo.data.data.status == 1) {
+                document.cookie = `ACSYS-USERID=${form.userid}; expires=; path=/`;
+                router.push("/main");
+                setIsLoading(false);
+            } else {
+                await axios.post(
+                    `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/secure/login`,
+                    form
+                );
+                document.cookie = `ACSYS-USERID=${form.userid}; expires=; path=/`;
+                router.push("/main");
+                setIsLoading(false);
+            }
         } catch (error) {
-            setErrors(error.response);
+            setErrors(error.response.data.errors);
             setIsLoading(false);
         }
     };
@@ -60,7 +75,7 @@ const Page = () => {
                                 onChange={(e) =>
                                     setForm({
                                         ...form,
-                                        username: e.target.value,
+                                        userid: e.target.value,
                                     })
                                 }
                             />
@@ -80,7 +95,7 @@ const Page = () => {
                                 onChange={(e) =>
                                     setForm({
                                         ...form,
-                                        password: e.target.value,
+                                        pass: e.target.value,
                                     })
                                 }
                             />
