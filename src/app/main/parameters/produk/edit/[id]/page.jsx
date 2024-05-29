@@ -136,7 +136,7 @@ const Page = () => {
   return (
     <div>
       <div className="bg-gray-200 py-4 px-8 rounded-xl text-blue-500 font-bold text-xl">
-        <h1>Edit Paramter Produk</h1>
+        <h1>Edit Paramater Produk</h1>
       </div>
       <form className="">
         <div className="mt-3 p-4 grid xl:grid-cols-3 gap-3">
