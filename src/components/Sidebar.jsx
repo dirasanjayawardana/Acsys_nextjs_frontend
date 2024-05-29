@@ -38,12 +38,12 @@ const Sidebar = () => {
     };
 
     return (
-        <div className="">
+        <div className="sticky top-0">
             {!isLoading ? (
                 <div
                     className={`${
                         showSideBar
-                            ? "w-[300px] h-[100vh] overflow-hidden hover:overflow-y-auto shadow-xl sticky top-0 transition-all"
+                            ? "w-[300px] min-h-[100vh] overflow-hidden hover:overflow-y-auto shadow-xl sticky top-0 transition-all"
                             : "w-0 -translate-x-64 h-[100vh] overflow-hidden hover:overflow-y-auto shadow-xl sticky top-0 transition-all"
                     }`}
                 >
