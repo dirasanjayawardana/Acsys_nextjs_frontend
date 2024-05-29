@@ -121,6 +121,12 @@ const Page = () => {
                             placeholder="Kode Produk"
                             className="input input-sm input-bordered w-[220px]"
                             value={dataProduk.kodeProduk}
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    namaProduk: e.target.value,
+                                })
+                            }
                             disabled
                         />
                     </div>
