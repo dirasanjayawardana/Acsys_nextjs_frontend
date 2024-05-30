@@ -181,8 +181,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -261,8 +261,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -296,8 +296,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -329,8 +329,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -362,7 +362,11 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="K">K</option>
+                            <option value="H">Hibahkan</option>
+                            <option value="K">Kapitalisir</option>
+                            <option value="P">Pindah Buku</option>
+                            <option value="T">Tunai</option>
+                            <option value="R">Transfer</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -392,7 +396,9 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">T</option>
+                            <option value="D">Produk Deposito</option>
+                            <option value="T">Produk Tabungan</option>
+                            <option value="G">Produk Giro</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -423,7 +429,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="Active">Active</option>
+                            <option value="A">Active</option>
+                            <option value="I">Inactive</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -440,8 +447,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -458,8 +465,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -476,8 +483,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -494,8 +501,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -512,8 +519,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -530,8 +537,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -567,8 +574,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -602,8 +609,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -651,8 +658,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -793,8 +800,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -811,8 +818,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -909,8 +916,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -927,8 +934,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -968,18 +975,20 @@ const Page = () => {
                         <label className="w-[220px]">
                             Jumlah Hari PerTahun
                         </label>
-                        <input
-                            type="text"
-                            placeholder="Jumlah Hari PerTahun"
-                            className="input input-sm input-bordered w-[220px]"
-                            value={dataProduk.jumlahHariPerTahun}
+                        <select
+                            className="select select-sm select-bordered w-[220px]"
+                            value={dataProduk.sumberBiayaAdm}
                             onChange={(e) =>
                                 setDataProduk({
                                     ...dataProduk,
                                     jumlahHariPerTahun: e.target.value,
                                 })
                             }
-                        />
+                        >
+                            <option value="1">360</option>
+                            <option value="2">364</option>
+                            <option value="3">365</option>
+                        </select>
                     </div>
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Kode Digit</label>
@@ -1010,8 +1019,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1028,8 +1037,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1046,8 +1055,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1064,8 +1073,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1082,8 +1091,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1100,8 +1109,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1116,8 +1125,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1132,8 +1141,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1148,8 +1157,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1179,8 +1188,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1195,8 +1204,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1277,8 +1286,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1293,8 +1302,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1311,8 +1320,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1357,8 +1366,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1375,8 +1384,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -1436,8 +1445,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
