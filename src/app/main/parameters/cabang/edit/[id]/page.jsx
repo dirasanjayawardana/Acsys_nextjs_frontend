@@ -310,8 +310,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Aktif</option>
+                            <option value="F">Tidak Aktif</option>
                         </select>
                     </div>
                     <div className="flex gap-3 items-center">
@@ -603,8 +603,8 @@ const Page = () => {
                                 })
                             }
                         >
-                            <option value="T">True</option>
-                            <option value="F">False</option>
+                            <option value="T">Ya</option>
+                            <option value="F">Tidak</option>
                         </select>
                     </div>
 
