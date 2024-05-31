@@ -8,10 +8,18 @@ import { FiLoader, FiSave } from "react-icons/fi";
 import { MdOutlineCancel } from "react-icons/md";
 
 const Page = () => {
+
+    const userid = document.cookie.split("; ").find((row) => row.startsWith("ACSYS-USERID="))?.split("=")[1];
+
     const params = useParams();
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
     const [dataCabang, setDataCabang] = useState({
+        submitter: "",
+        authorizer: "",
+        submitAt: "",
+        deadline: "",
+        status: "",
         kodeCabang: "",
         namaCabang: "",
         tipeCabang: "",
@@ -64,14 +72,16 @@ const Page = () => {
 
     const updateData = async () => {
         setIsLoading(true);
-        const userid = document.cookie
-            .split("; ")
-            .find((row) => row.startsWith("ACSYS-USERID="))
-            ?.split("=")[1];
         try {
-            const response = await axios.put(
-                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/cabang/updateCabang?code=${params.id}`,
-                dataCabang,
+            await axios.post(
+                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/cabang/log`,
+                {...dataCabang,
+                    submitter: userid,
+                    authorizer: "SA",
+                    submitAt: "123",
+                    deadline: "123",
+                    status: "PENDING"
+                },
                 {
                     headers: {
                         "Content-Type": "application/json",

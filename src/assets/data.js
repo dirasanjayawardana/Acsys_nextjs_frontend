@@ -38,7 +38,7 @@ export const sidebarData = [
         pages: [
             {
                 id_active: 7,
-                link: '/status/satusapprovement',
+                link: '/main/status/statusapprovement',
                 icon: <FiCheckSquare size={20}/>,
                 name: "Status Approvement",
             },
