@@ -1,19 +1,19 @@
 "use client";
 import axios from "axios";
-import { useRouter } from "next/navigation";
-import React, { useState } from "react";
+import React from "react";
 import { FiCheckSquare, FiXSquare } from "react-icons/fi";
 
-const TableApprove = ({ headers, data, action, isRefresh }) => {
-
-    const handleStatus = async (id, status) => {
-        isRefresh()
+const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
+    const handleStatusApprove = async (id, status) => {
+        isRefresh();
         try {
-            await axios.put(`${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/cabang/log?id=${id}&status=${status}`);
+            await axios.put(
+                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/${parameter}/log?id=${id}&status=${status}`
+            );
         } catch (error) {
             console.log(error);
         }
-        isRefresh()
+        isRefresh();
     };
 
     return (
@@ -42,10 +42,21 @@ const TableApprove = ({ headers, data, action, isRefresh }) => {
                                     <button
                                         type="button"
                                         onClick={() =>
-                                            handleStatus(item.id, "DECLINE")
+                                            handleStatusApprove(
+                                                item.id,
+                                                "DECLINE"
+                                            )
                                         }
-                                        disabled={item.status.toUpperCase() !== "PENDING"}
-                                        className={`flex flex-col gap-1 items-center justify-center pt-2 ${item.status.toUpperCase() !== "PENDING" ? "text-gray-500 cursor-not-allowed" : "text-red-400 cursor-pointer"}`}
+                                        disabled={
+                                            item.statusApprovement.toUpperCase() !==
+                                            "PENDING"
+                                        }
+                                        className={`flex flex-col gap-1 items-center justify-center pt-2 ${
+                                            item.statusApprovement.toUpperCase() !==
+                                            "PENDING"
+                                                ? "text-gray-500 cursor-not-allowed"
+                                                : "text-red-400 cursor-pointer"
+                                        }`}
                                     >
                                         <FiXSquare size={20} />
                                         <p className="">Decline</p>
@@ -53,10 +64,21 @@ const TableApprove = ({ headers, data, action, isRefresh }) => {
                                     <button
                                         type="button"
                                         onClick={() =>
-                                            handleStatus(item.id, "APPROVED")
+                                            handleStatusApprove(
+                                                item.id,
+                                                "APPROVED"
+                                            )
                                         }
-                                        disabled={item.status.toUpperCase() !== "PENDING"}
-                                        className={`flex flex-col gap-1 items-center justify-center pt-2 ${item.status.toUpperCase() !== "PENDING" ? "text-gray-500 cursor-not-allowed" : "text-green-600 cursor-pointer"}`}
+                                        disabled={
+                                            item.statusApprovement.toUpperCase() !==
+                                            "PENDING"
+                                        }
+                                        className={`flex flex-col gap-1 items-center justify-center pt-2 ${
+                                            item.statusApprovement.toUpperCase() !==
+                                            "PENDING"
+                                                ? "text-gray-500 cursor-not-allowed"
+                                                : "text-green-600 cursor-pointer"
+                                        }`}
                                     >
                                         <FiCheckSquare size={20} />
                                         <p className="">Approve</p>

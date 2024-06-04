@@ -7,7 +7,7 @@ export const sidebarData = [
         header: "Dashboard",
         pages: [
             {
-                id_active: 1,
+                id_active: 11,
                 link: '/main',
                 icon: <FiHome size={20} />,
                 name: "Home",
@@ -19,13 +19,13 @@ export const sidebarData = [
         header: "Parameter",
         pages: [
             {
-                id_active: 2,
+                id_active: 21,
                 link: '/main/parameters/cabang',
                 icon: <BsGrid size={20} />,
                 name: "Cabang",
             },
             {
-                id_active: 2,
+                id_active: 22,
                 link: '/main/parameters/produk',
                 icon: <BsGrid size={20} />,
                 name: "Produk",
@@ -37,10 +37,16 @@ export const sidebarData = [
         header: "Status",
         pages: [
             {
-                id_active: 7,
-                link: '/main/status/statusapprovement',
+                id_active: 31,
+                link: '/main/status/approvecabang',
                 icon: <FiCheckSquare size={20}/>,
-                name: "Status Approvement",
+                name: "Approvement Cabang",
+            },
+            {
+                id_active: 32,
+                link: '/main/status/approveproduk',
+                icon: <FiCheckSquare size={20}/>,
+                name: "Approvement Produk",
             },
         ]
     }
@@ -52,13 +58,13 @@ export const sidebarAdmin = [
         header: "Administrator",
         pages: [
             {
-                id_active: 8,
+                id_active: 41,
                 link: '/main/administrator/userlist',
                 icon: <FiUsers size={20} />,
                 name: "User List",
             }, 
             {
-                id_active: 9,
+                id_active: 42,
                 link: '/main/administrator/userlog',
                 icon: <FiUserCheck size={20} />,
                 name: "User Log",

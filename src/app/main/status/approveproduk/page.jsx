@@ -1,7 +1,5 @@
 "use client";
-import { dummyBodyTable, dummyHeaderTable } from "@/assets/dummyData";
 import NotFound from "@/components/NotFound";
-import PleaseWait from "@/components/PleaseWait";
 import TableApprove from "@/components/status/TableApprove";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -18,7 +16,7 @@ const Page = () => {
         setDataLog(null);
         try {
             const response = await axios.get(
-                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/cabang/log`
+                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/produk/log`
             );
             setDataLog(response.data.data);
         } catch (error) {
@@ -37,6 +35,7 @@ const Page = () => {
                 <TableApprove
                     headers={Object.keys(dataLog[0]).slice(1)}
                     data={dataLog}
+                    parameter={"produk"}
                     action={true}
                     isRefresh={handleRefresh}
                 />

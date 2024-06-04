@@ -8,6 +8,11 @@ import { FiLoader, FiSave } from "react-icons/fi";
 import { MdOutlineCancel } from "react-icons/md";
 
 const Page = () => {
+    const userid = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("ACSYS-USERID="))
+        ?.split("=")[1];
+
     const params = useParams();
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
@@ -114,14 +119,16 @@ const Page = () => {
     const updateProduk = async () => {
         setIsLoading(true);
         try {
-            console.log("Sending data:", dataProduk);
-            const userid = document.cookie
-                .split("; ")
-                .find((row) => row.startsWith("ACSYS-USERID="))
-                ?.split("=")[1];
-            const response = await axios.put(
-                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/produk/updateproduk?code=${params.id}`,
-                dataProduk,
+            await axios.post(
+                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/produk/log`,
+                {
+                    ...dataProduk,
+                    submitter: userid,
+                    authorizer: "SA",
+                    submitAt: "123",
+                    deadline: "123",
+                    statusApprovement: "PENDING",
+                },
                 {
                     headers: {
                         "USER-ID": userid,

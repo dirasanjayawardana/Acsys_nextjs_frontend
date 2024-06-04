@@ -8,8 +8,10 @@ import { FiLoader, FiSave } from "react-icons/fi";
 import { MdOutlineCancel } from "react-icons/md";
 
 const Page = () => {
-
-    const userid = document.cookie.split("; ").find((row) => row.startsWith("ACSYS-USERID="))?.split("=")[1];
+    const userid = document.cookie
+        .split("; ")
+        .find((row) => row.startsWith("ACSYS-USERID="))
+        ?.split("=")[1];
 
     const params = useParams();
     const router = useRouter();
@@ -75,12 +77,13 @@ const Page = () => {
         try {
             await axios.post(
                 `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/cabang/log`,
-                {...dataCabang,
+                {
+                    ...dataCabang,
                     submitter: userid,
                     authorizer: "SA",
                     submitAt: "123",
                     deadline: "123",
-                    status: "PENDING"
+                    statusApprovement: "PENDING",
                 },
                 {
                     headers: {
