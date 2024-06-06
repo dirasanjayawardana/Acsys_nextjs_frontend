@@ -36,7 +36,7 @@ const TableUser = ({headers, data}) => {
 
     return ( 
         <div className="overflow-auto mx-auto">
-            <table className="text-center border-b cursor-pointer">
+            <table className="text-center border-b cursor-pointer w-full">
                 <thead>
                     <tr className="border-b-2 bg-blue-300 text-sm">
                         {headers.map((item, index) => (

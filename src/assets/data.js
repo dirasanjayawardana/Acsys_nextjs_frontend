@@ -30,6 +30,12 @@ export const sidebarData = [
                 icon: <BsGrid size={20} />,
                 name: "Produk",
             },
+            {
+                id_active: 23,
+                link: '/main/parameters/kodepos',
+                icon: <BsGrid size={20} />,
+                name: "Kode Pos",
+            },
         ]
     },
     {
