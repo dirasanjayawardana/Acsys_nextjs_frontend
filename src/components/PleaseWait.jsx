@@ -8,7 +8,8 @@ const PleaseWait = () => {
             <div className="bg-blue-200 my-3 rounded-xl py-2 px-4 flex items-center justify-center">
                 <div className="flex gap-3 items-center">
                     <p>Please wait</p>{" "}
-                    <FiLoader size={20} className="animate-spin-slow" />
+                    {/* <FiLoader size={20} className="animate-spin-slow" /> */}
+                    <span className="loading loading-spinner"></span>
                 </div>
             </div>
         </div>

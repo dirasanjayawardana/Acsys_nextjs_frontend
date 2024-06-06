@@ -1505,10 +1505,7 @@ const Page = () => {
                         {isLoading ? (
                             <div className="flex justify-center gap-3">
                                 <p>Please wait</p>
-                                <FiLoader
-                                    size={20}
-                                    className="animate-spin-slow"
-                                />
+                                <span className="loading loading-spinner"></span>
                             </div>
                         ) : (
                             <div className="flex items-center gap-1">

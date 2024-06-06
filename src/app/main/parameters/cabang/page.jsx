@@ -22,6 +22,7 @@ const Page = () => {
 
     const getDataCabang = async () => {
         setDataCabang(null);
+        setSearchResult(null);
         try {
             const response = await axios.get(
                 `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/cabang?start=${startIndex}&size=${perPage}`

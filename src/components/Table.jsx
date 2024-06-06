@@ -11,8 +11,8 @@ const Table = ({ headers, data, action, link }) => {
     };
 
     return (
-        <div className="overflow-auto mx-auto">
-            <table className="text-center border-b cursor-pointer">
+        <div className="overflow-auto mx-auto w-full">
+            <table className="text-center border-b cursor-pointer w-full">
                 <thead>
                     <tr className="border-b-2 bg-blue-300 text-sm">
                         {action && <th className="py-2 px-4 w-32">Action</th>}

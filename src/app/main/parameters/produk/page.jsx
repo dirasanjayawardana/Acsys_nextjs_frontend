@@ -22,6 +22,7 @@ const Page = () => {
 
     const getDataProduk = async () => {
         setDataProduk(null);
+        setSearchResult(null);
         try {
             const response = await axios.get(
                 `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/produk?start=${startIndex}&size=${perPage}`
