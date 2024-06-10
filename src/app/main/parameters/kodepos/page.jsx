@@ -114,7 +114,7 @@ const Page = () => {
                         headers={Object.keys(dataKodepos[0]).slice(1)}
                         data={dataKodepos}
                         action={true}
-                        link={"#"}
+                        link={"/main/parameters/kodepos/"}
                     />
                 </div>
             ) : (

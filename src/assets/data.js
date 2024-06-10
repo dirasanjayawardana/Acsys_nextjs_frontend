@@ -54,6 +54,12 @@ export const sidebarData = [
                 icon: <FiCheckSquare size={20}/>,
                 name: "Approvement Produk",
             },
+            {
+                id_active: 32,
+                link: '/main/status/approvekodepos',
+                icon: <FiCheckSquare size={20}/>,
+                name: "Approvement Kode Pos",
+            },
         ]
     }
 ]

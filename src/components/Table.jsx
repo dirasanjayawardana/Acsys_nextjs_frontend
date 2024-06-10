@@ -36,7 +36,7 @@ const Table = ({ headers, data, action, link }) => {
                                     <button
                                         type="button"
                                         onClick={() =>
-                                            handleEdit(item[headers[0]])
+                                            handleEdit(item[Object.keys(item)[0]])
                                         }
                                         className="text-yellow-600 flex flex-col gap-1 items-center justify-center pt-2"
                                     >
