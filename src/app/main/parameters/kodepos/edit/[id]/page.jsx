@@ -70,83 +70,86 @@ const Page = () => {
       <div className="bg-gray-200 py-4 px-8 rounded-xl text-blue-500 font-bold text-xl">
         <h1>Edit Parameter Kode Pos</h1>
       </div>
-      <form className="mt-3 p-4 grid xl:grid-cols-3 gap-3">
-        <div className="flex gap-3 items-center">
-          <label className="w-[220px]">Kode Pos</label>
-          <input
-            type="text"
-            placeholder="Kode Pos"
-            className="input input-sm input-bordered w-[220px]"
-            value={dataKodepos.kodePos}
-            onChange={(e) =>
-              setDataKodepos({
-                ...dataKodepos,
-                kodePos: e.target.value,
-              })
-            }
-          />
+      <form className="mt-3 p-4 gap-3">
+        <div className="flex flex-col gap-3">
+          <div className="flex gap-3 items-center">
+            <label className="w-[220px]">Kode Pos</label>
+            <input
+              type="text"
+              placeholder="Kode Pos"
+              className="input input-sm input-bordered w-[220px]"
+              value={dataKodepos.kodePos}
+              onChange={(e) =>
+                setDataKodepos({
+                  ...dataKodepos,
+                  kodePos: e.target.value,
+                })
+              }
+            />
+          </div>
+          <div className="flex gap-3 items-center">
+            <label className="w-[220px]">Desa</label>
+            <input
+              type="text"
+              placeholder="Desa"
+              className="input input-sm input-bordered w-[220px]"
+              value={dataKodepos.desa}
+              onChange={(e) =>
+                setDataKodepos({
+                  ...dataKodepos,
+                  desa: e.target.value,
+                })
+              }
+            />
+          </div>
+          <div className="flex gap-3 items-center">
+            <label className="w-[220px]">Kecamatan</label>
+            <input
+              type="text"
+              placeholder="Kecamatan"
+              className="input input-sm input-bordered w-[220px]"
+              value={dataKodepos.kecamatan}
+              onChange={(e) =>
+                setDataKodepos({
+                  ...dataKodepos,
+                  kecamatan: e.target.value,
+                })
+              }
+            />
+          </div>
+          <div className="flex gap-3 items-center">
+            <label className="w-[220px]">Kota Kabupaten</label>
+            <input
+              type="text"
+              placeholder="Kota Kabupaten"
+              className="input input-sm input-bordered w-[220px]"
+              value={dataKodepos.kotaKabupaten}
+              onChange={(e) =>
+                setDataKodepos({
+                  ...dataKodepos,
+                  kotaKabupaten: e.target.value,
+                })
+              }
+            />
+          </div>
+          <div className="flex gap-3 items-center">
+            <label className="w-[220px]">Provinsi</label>
+            <input
+              type="text"
+              placeholder="Provinsi"
+              className="input input-sm input-bordered w-[220px]"
+              value={dataKodepos.provinsi}
+              onChange={(e) =>
+                setDataKodepos({
+                  ...dataKodepos,
+                  provinsi: e.target.value,
+                })
+              }
+            />
+          </div>
         </div>
-        <div className="flex gap-3 items-center">
-          <label className="w-[220px]">Desa</label>
-          <input
-            type="text"
-            placeholder="Desa"
-            className="input input-sm input-bordered w-[220px]"
-            value={dataKodepos.desa}
-            onChange={(e) =>
-              setDataKodepos({
-                ...dataKodepos,
-                desa: e.target.value,
-              })
-            }
-          />
-        </div>
-        <div className="flex gap-3 items-center">
-          <label className="w-[220px]">Kecamatan</label>
-          <input
-            type="text"
-            placeholder="Kecamatan"
-            className="input input-sm input-bordered w-[220px]"
-            value={dataKodepos.kecamatan}
-            onChange={(e) =>
-              setDataKodepos({
-                ...dataKodepos,
-                kecamatan: e.target.value,
-              })
-            }
-          />
-        </div>
-        <div className="flex gap-3 items-center">
-          <label className="w-[220px]">Kota Kabupaten</label>
-          <input
-            type="text"
-            placeholder="Kota Kabupaten"
-            className="input input-sm input-bordered w-[220px]"
-            value={dataKodepos.kotaKabupaten}
-            onChange={(e) =>
-              setDataKodepos({
-                ...dataKodepos,
-                kotaKabupaten: e.target.value,
-              })
-            }
-          />
-        </div>
-        <div className="flex gap-3 items-center">
-          <label className="w-[220px]">Provinsi</label>
-          <input
-            type="text"
-            placeholder="Provinsi"
-            className="input input-sm input-bordered w-[220px]"
-            value={dataKodepos.provinsi}
-            onChange={(e) =>
-              setDataKodepos({
-                ...dataKodepos,
-                provinsi: e.target.value,
-              })
-            }
-          />
-        </div>
-        <div className="flex gap-2 items-center text-white ml-3 mt-3">
+
+        <div className="flex gap-2 items-center text-white mt-7">
           <Link href="/main/parameters/kodepos">
             <button className="py-2 px-4 rounded-xl bg-red-400 flex gap-1 items-center">
               <MdOutlineCancel />
