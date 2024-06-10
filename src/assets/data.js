@@ -46,19 +46,19 @@ export const sidebarData = [
                 id_active: 31,
                 link: '/main/status/approvecabang',
                 icon: <FiCheckSquare size={20}/>,
-                name: "Approvement Cabang",
+                name: "Log Cabang",
             },
             {
                 id_active: 32,
                 link: '/main/status/approveproduk',
                 icon: <FiCheckSquare size={20}/>,
-                name: "Approvement Produk",
+                name: "Log Produk",
             },
             {
                 id_active: 32,
                 link: '/main/status/approvekodepos',
                 icon: <FiCheckSquare size={20}/>,
-                name: "Approvement Kode Pos",
+                name: "Log Kode Pos",
             },
         ]
     }
