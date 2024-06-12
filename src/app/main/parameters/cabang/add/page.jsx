@@ -58,7 +58,6 @@ const Page = () => {
 
     const createData = async () => {
         setIsLoading(true);
-        const currentDate = new Date().toISOString();
         try {
             await axios.post(
                 `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/cabang/log`,
@@ -66,10 +65,9 @@ const Page = () => {
                     ...dataCabang,
                     submitter: userid,
                     authorizer: "SA",
-                    submitAt: currentDate,
+                    submitAt: "123",
                     deadline: "123",
                     statusApprovement: "PENDING",
-                    tanggalInput: currentDate
                 },
                 {
                     headers: {
