@@ -102,18 +102,20 @@ const Page = () => {
     });
 
     useEffect(() => {
-        const getCurrentData = async () => {
-            try {
-                const response = await axios.get(
-                    `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/produk/getproduk?input=${params.id}`
-                );
-                setDataProduk(response.data.data[0]);
-            } catch (error) {
-                console.log(error);
-            }
-        };
+        if (params.id !== "create") {
+            const getCurrentData = async () => {
+                try {
+                    const response = await axios.get(
+                        `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/produk/getproduk?input=${params.id}`
+                    );
+                    setDataProduk(response.data.data[0]);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
 
-        getCurrentData();
+            getCurrentData();
+        }
     }, [params.id]);
 
     const updateProduk = async () => {
@@ -145,7 +147,9 @@ const Page = () => {
     return (
         <div>
             <div className="bg-gray-200 py-4 px-8 rounded-xl text-blue-500 font-bold text-xl">
-                <h1>Edit Paramater Produk</h1>
+                <h1>
+                    {params.id === "create" ? "Add" : "Edit"} Paramater Produk
+                </h1>
             </div>
             <form className="">
                 <div className="mt-3 p-4 grid xl:grid-cols-3 gap-3">
@@ -156,7 +160,13 @@ const Page = () => {
                             placeholder="Kode Produk"
                             className="input input-sm input-bordered w-[220px]"
                             value={dataProduk.kodeProduk}
-                            disabled
+                            onChange={(e) =>
+                                setDataProduk({
+                                    ...dataProduk,
+                                    kodeProduk: e.target.value,
+                                })
+                            }
+                            disabled={params.id !== "create"}
                         />
                     </div>
                     <div className="flex gap-3 items-center">

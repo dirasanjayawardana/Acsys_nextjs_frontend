@@ -49,21 +49,20 @@ const Page = () => {
     return (
         <div>
             <div className="flex justify-between items-center mt-5">
-                <FormSearch
-                    placeholder="Cari Cabang"
-                    setState={setSearchInput}
-                    handleSubmit={handleSearch}
-                />
-                <div className="ml-5">
-                    <Link href="/main/parameters/cabang/add">
+                <div className="flex gap-2">
+                    <FormSearch
+                        placeholder="Cari Cabang"
+                        setState={setSearchInput}
+                        handleSubmit={handleSearch}
+                    />
+                    <Link href="/main/parameters/cabang/edit/create">
                         <button className="flex items-center gap-2 bg-blue-500 py-2 px-3 rounded-xl text-white">
-                            <FiPlus size={20} />
+                            <FiPlus size={20} /> <p>Add</p>
                         </button>
                     </Link>
                 </div>
-                
 
-                {dataCabang && !searchResult && (
+                {dataCabang && (
                     <div className="w-full flex justify-end items-center gap-3">
                         <button
                             type="button"

@@ -58,18 +58,20 @@ const Page = () => {
     });
 
     useEffect(() => {
-        const getCurrentData = async () => {
-            try {
-                const response = await axios.get(
-                    `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/cabang/getcabang?input=${params.id}`
-                );
-                setDataCabang(response.data.data[0]);
-            } catch (error) {
-                console.log(error);
-            }
-        };
+        if (params.id !== "create") {
+            const getCurrentData = async () => {
+                try {
+                    const response = await axios.get(
+                        `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/cabang/getcabang?input=${params.id}`
+                    );
+                    setDataCabang(response.data.data[0]);
+                } catch (error) {
+                    console.log(error);
+                }
+            };
 
-        getCurrentData();
+            getCurrentData();
+        }
     }, [params.id]);
 
     const updateData = async () => {
@@ -102,7 +104,7 @@ const Page = () => {
     return (
         <div>
             <div className="bg-gray-200 py-4 px-8 rounded-xl text-blue-500 font-bold text-xl">
-                <h1>Edit Parameter Cabang</h1>
+                <h1>{params.id === "create" ? "Add" : "Edit"} Parameter Cabang</h1>
             </div>
             {dataCabang ? (
                 <form className="mt-3 p-4 grid xl:grid-cols-3 gap-3">
@@ -119,7 +121,7 @@ const Page = () => {
                                     kodeCabang: e.target.value,
                                 })
                             }
-                            disabled
+                            disabled={params.id !== "create"}
                         />
                     </div>
                     <div className="flex gap-3 items-center">

@@ -76,7 +76,7 @@ const Page = () => {
             handleSubmit={handleSearch}
           />
 
-          <Link href={'/main/parameters/kodepos/add'}>
+          <Link href={'/main/parameters/kodepos/edit/create'}>
             <button className="flex items-center gap-2 bg-blue-500 py-2 px-3 rounded-xl text-white">
               <FiPlus size={20} /> <p>Add</p>
             </button>
