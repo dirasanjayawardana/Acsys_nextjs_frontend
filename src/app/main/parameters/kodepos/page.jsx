@@ -10,7 +10,7 @@ import { FiPlus } from "react-icons/fi";
 
 const Page = () => {
   const [searchInput, setSearchInput] = useState("");
-  const [serachInputCategory, setSearchInputCategory] = useState("");
+  const [serachInputCategory, setSearchInputCategory] = useState("kodepos");
   const [dataKodepos, setDataKodepos] = useState(null);
   const [searchResult, setSearchResult] = useState(null);
 

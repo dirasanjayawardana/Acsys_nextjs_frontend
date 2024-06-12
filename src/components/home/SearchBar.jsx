@@ -4,12 +4,12 @@ import { BsGrid } from "react-icons/bs";
 
 const SearchBar = () => {
     return (
-        <div className="bg-blue-200 py-3 px-4 rounded-xl flex justify-between items-center">
+        <div className="bg-gray-200 py-3 px-4 rounded-xl flex justify-between items-center text-blue-500">
             <BsGrid size={24} />
             <form className="flex items-center gap-3">
                 <input
                     type="text"
-                    placeholder="Search App"
+                    placeholder="Search Parameter"
                     className="bg-white text-end px-3 py-1 rounded-xl border"
                 />
                 <button>
