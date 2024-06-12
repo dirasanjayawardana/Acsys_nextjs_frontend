@@ -5,7 +5,9 @@ import NotFound from "@/components/NotFound";
 import PleaseWait from "@/components/PleaseWait";
 import Table from "@/components/Table";
 import axios from "axios";
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
+import { FiPlus } from "react-icons/fi";
 
 const Page = () => {
     const [searchInput, setSearchInput] = useState("");
@@ -52,6 +54,14 @@ const Page = () => {
                     setState={setSearchInput}
                     handleSubmit={handleSearch}
                 />
+                <div className="ml-5">
+                    <Link href="/main/parameters/cabang/add">
+                        <button className="flex items-center gap-2 bg-blue-500 py-2 px-3 rounded-xl text-white">
+                            <FiPlus size={20} />
+                        </button>
+                    </Link>
+                </div>
+                
 
                 {dataCabang && !searchResult && (
                     <div className="w-full flex justify-end items-center gap-3">
