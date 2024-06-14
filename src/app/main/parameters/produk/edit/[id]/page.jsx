@@ -16,6 +16,7 @@ const Page = () => {
     const params = useParams();
     const router = useRouter();
     const [isLoading, setIsLoading] = useState(false);
+    const [scheduleInput, setScheduleInput] = useState("");
     const [dataProduk, setDataProduk] = useState({
         kodeProduk: "",
         namaProduk: "",
@@ -118,6 +119,23 @@ const Page = () => {
         }
     }, [params.id]);
 
+    const getMinDateTime = () => {
+        const now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        return now.toISOString().slice(0, 16);
+    };
+
+    const convertDateToCron = (date) => {
+        const d = new Date(date);
+        const seconds = "0";
+        const minutes = d.getMinutes();
+        const hours = d.getHours();
+        const dayOfMonth = d.getDate();
+        const month = d.getMonth() + 1;
+        const dayOfWeek = "?";
+        return `${seconds} ${minutes} ${hours} ${dayOfMonth} ${month} ${dayOfWeek}`;
+    };
+
     const updateProduk = async () => {
         setIsLoading(true);
         try {
@@ -129,6 +147,7 @@ const Page = () => {
                     authorizer: "SA",
                     submitAt: "123",
                     deadline: "123",
+                    scheduleAt: convertDateToCron(scheduleInput),
                     statusApprovement: "PENDING",
                 },
                 {
@@ -151,7 +170,13 @@ const Page = () => {
                     {params.id === "create" ? "Add" : "Edit"} Paramater Produk
                 </h1>
             </div>
-            <form className="">
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    updateProduk();
+                }}
+                className=""
+            >
                 <div className="mt-3 p-4 grid xl:grid-cols-3 gap-3">
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Kode Produk</label>
@@ -1499,31 +1524,42 @@ const Page = () => {
                         />
                     </div>
                 </div>
-
-                <div className="flex gap-2 items-center text-white ml-3 mt-3">
-                    <Link href="/main/parameters/produk">
-                        <button className="py-2 px-4 rounded-xl bg-red-400 flex gap-1 items-center">
-                            <MdOutlineCancel />
-                            <span>Cancel</span>
+                <div className="">
+                    <div className="flex gap-3 items-center">
+                        <label className="w-[220px]">Schedule Date</label>
+                        <input
+                            type="datetime-local"
+                            className="input input-sm input-bordered w-[220px]"
+                            value={scheduleInput}
+                            required
+                            min={getMinDateTime()}
+                            onChange={(e) => setScheduleInput(e.target.value)}
+                        />
+                    </div>
+                    <div className="flex gap-2 items-center text-white ml-3 mt-3">
+                        <Link href="/main/parameters/produk">
+                            <button className="py-2 px-4 rounded-xl bg-red-400 flex gap-1 items-center">
+                                <MdOutlineCancel />
+                                <span>Cancel</span>
+                            </button>
+                        </Link>
+                        <button
+                            type="submit"
+                            className="py-2 px-4 rounded-xl bg-blue-500 flex gap-1 items-center"
+                        >
+                            {isLoading ? (
+                                <div className="flex justify-center gap-3">
+                                    <p>Please wait</p>
+                                    <span className="loading loading-spinner"></span>
+                                </div>
+                            ) : (
+                                <div className="flex items-center gap-1">
+                                    <FiSave />
+                                    <span>Submit</span>
+                                </div>
+                            )}
                         </button>
-                    </Link>
-                    <button
-                        type="button"
-                        onClick={() => updateProduk()}
-                        className="py-2 px-4 rounded-xl bg-blue-500 flex gap-1 items-center"
-                    >
-                        {isLoading ? (
-                            <div className="flex justify-center gap-3">
-                                <p>Please wait</p>
-                                <span className="loading loading-spinner"></span>
-                            </div>
-                        ) : (
-                            <div className="flex items-center gap-1">
-                                <FiSave />
-                                <span>Submit</span>
-                            </div>
-                        )}
-                    </button>
+                    </div>
                 </div>
             </form>
         </div>
