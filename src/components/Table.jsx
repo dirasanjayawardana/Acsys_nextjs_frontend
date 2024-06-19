@@ -1,10 +1,13 @@
 "use client";
+import { useStateContext } from "@/contexts/ContexProvider";
+import { IsOperator, IsSaOperator, IsSaSupervisor } from "@/validation/validateGroupAkses";
 import { useRouter } from "next/navigation";
 import React from "react";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 
 const Table = ({ headers, data, action, link }) => {
     const router = useRouter();
+    const { userAplikasi } = useStateContext();
 
     const handleEdit = (id) => {
         router.push(`${link}/edit/${id}`);
@@ -15,7 +18,8 @@ const Table = ({ headers, data, action, link }) => {
             <table className="text-center border-b cursor-pointer w-full">
                 <thead>
                     <tr className="border-b-2 bg-blue-300 text-sm">
-                        {action && <th className="py-2 px-4 w-32">Action</th>}
+                        {(IsOperator() || IsSaOperator() || IsSaSupervisor()) && action && <th className="py-2 px-4 w-32">Action</th>}
+
                         {headers.map((item, index) => (
                             <th key={index} className="py-3 px-6 capitalize">
                                 {item}
@@ -31,12 +35,14 @@ const Table = ({ headers, data, action, link }) => {
                                 index % 2 === 0 ? "bg-white" : "bg-blue-100"
                             } hover:bg-gray-100 text-xs leading-5`}
                         >
-                            {action && (
+                            {(IsOperator() || IsSaOperator() || IsSaSupervisor()) && action && (
                                 <td className="py-3 px-6 w-32 flex items-center justify-center gap-3">
                                     <button
                                         type="button"
                                         onClick={() =>
-                                            handleEdit(item[Object.keys(item)[0]])
+                                            handleEdit(
+                                                item[Object.keys(item)[0]]
+                                            )
                                         }
                                         className="text-yellow-600 flex flex-col gap-1 items-center justify-center pt-2"
                                     >

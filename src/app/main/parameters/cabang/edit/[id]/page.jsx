@@ -76,12 +76,6 @@ const Page = () => {
         }
     }, [params.id]);
 
-    const getMinDateTime = () => {
-        const now = new Date();
-        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
-        return now.toISOString().slice(0, 16);
-    };
-
     const updateData = async () => {
         setIsLoading(true);
         try {
@@ -90,9 +84,9 @@ const Page = () => {
                 {
                     ...dataCabang,
                     submitter: userid,
-                    authorizer: "SA",
-                    submitAt: "123",
-                    deadline: "123",
+                    authorizer: "SUPERVISOR",
+                    submitAt: new Date().toLocaleString(),
+                    deadline: calculateDeadline(scheduleInput),
                     scheduleAt: convertDateToCron(scheduleInput),
                     statusApprovement: "PENDING",
                 },
@@ -119,6 +113,18 @@ const Page = () => {
         const month = d.getMonth() + 1;
         const dayOfWeek = "?";
         return `${seconds} ${minutes} ${hours} ${dayOfMonth} ${month} ${dayOfWeek}`;
+    };
+
+    const calculateDeadline = (date) => {
+        const d = new Date(date);
+        d.setDate(d.getDate() - 1);
+        return d.toLocaleString();
+    };
+    
+    const getMinDateTime = () => {
+        const now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        return now.toISOString().slice(0, 16);
     };
 
     return (

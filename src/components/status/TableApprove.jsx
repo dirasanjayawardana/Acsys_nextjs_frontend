@@ -1,9 +1,13 @@
 "use client";
+import { useStateContext } from "@/contexts/ContexProvider";
+import { IsSaSupervisor, IsSupervisor } from "@/validation/validateGroupAkses";
 import axios from "axios";
 import React from "react";
 import { FiCheckSquare, FiXSquare } from "react-icons/fi";
 
 const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
+    const { userAplikasi } = useStateContext();
+
     const handleStatusApprove = async (id, status) => {
         isRefresh();
         try {
@@ -16,12 +20,39 @@ const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
         isRefresh();
     };
 
+    const statusColor = (status) => {
+        if (status.toUpperCase() === "DECLINE") {
+            return "font-bold text-red-400";
+        } else if (status.toUpperCase() === "APPROVED") {
+            return "font-bold text-green-500";
+        } else {
+            return "font-bold text-yellow-500";
+        }
+    };
+
+    const convertCronToDate = (cron) => {
+        const [seconds, minutes, hours, dayOfMonth, month, dayOfWeek] =
+            cron.split(" ");
+
+        const d = new Date();
+        d.setSeconds(seconds);
+        d.setMinutes(minutes);
+        d.setHours(hours);
+        d.setDate(dayOfMonth);
+        d.setMonth(month - 1);
+
+        return d.toLocaleString();
+    };
+
     return (
         <div className="overflow-auto mx-auto">
             <table className="text-center border-b cursor-pointer">
                 <thead>
                     <tr className="border-b-2 bg-blue-300 text-sm">
-                        {action && <th className="py-2 px-4 w-32">Action</th>}
+                        {(IsSupervisor() || IsSaSupervisor()) && action && (
+                            <th className="py-2 px-4 w-32">Action</th>
+                        )}
+
                         {headers.map((item, index) => (
                             <th key={index} className="py-3 px-6 capitalize">
                                 {item}
@@ -37,7 +68,7 @@ const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
                                 index % 2 === 0 ? "bg-white" : "bg-blue-100"
                             } hover:bg-gray-100 text-xs leading-5`}
                         >
-                            {action && (
+                            {(IsSupervisor() || IsSaSupervisor()) && action && (
                                 <td className="py-3 px-6 w-36 flex items-center justify-center gap-5">
                                     <button
                                         type="button"
@@ -87,8 +118,16 @@ const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
                             )}
 
                             {headers.map((header, headerIndex) => (
-                                <td key={headerIndex} className="py-3 px-6">
-                                    {item[header]}
+                                <td
+                                    key={headerIndex}
+                                    className={`py-3 px-6 ${
+                                        header === "statusApprovement" &&
+                                        statusColor(item.statusApprovement)
+                                    }`}
+                                >
+                                    {header === "scheduleAt" && item[header]
+                                        ? convertCronToDate(item[header])
+                                        : item[header]}
                                 </td>
                             ))}
                         </tr>

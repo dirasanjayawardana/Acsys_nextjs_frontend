@@ -14,6 +14,7 @@ const Page = () => {
 
     const params = useParams();
     const router = useRouter();
+    const [scheduleInput, setScheduleInput] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     const [dataKodepos, setDataKodepos] = useState({
         kodePos: "",
@@ -48,9 +49,10 @@ const Page = () => {
                 {
                     ...dataKodepos,
                     submitter: userid,
-                    authorizer: "affan",
-                    submitAt: "10062024",
-                    deadline: "11062024",
+                    authorizer: "SUPERVISOR",
+                    submitAt: new Date().toLocaleString(),
+                    deadline: calculateDeadline(scheduleInput),
+                    scheduleAt: convertDateToCron(scheduleInput),
                     statusApprovement: "PENDING",
                 },
                 {
@@ -65,6 +67,29 @@ const Page = () => {
         } catch (error) {
             console.error("Error:", error);
         }
+    };
+
+    const convertDateToCron = (date) => {
+        const d = new Date(date);
+        const seconds = "0";
+        const minutes = d.getMinutes();
+        const hours = d.getHours();
+        const dayOfMonth = d.getDate();
+        const month = d.getMonth() + 1;
+        const dayOfWeek = "?";
+        return `${seconds} ${minutes} ${hours} ${dayOfMonth} ${month} ${dayOfWeek}`;
+    };
+
+    const calculateDeadline = (date) => {
+        const d = new Date(date);
+        d.setDate(d.getDate() - 1);
+        return d.toLocaleString();
+    };
+
+    const getMinDateTime = () => {
+        const now = new Date();
+        now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+        return now.toISOString().slice(0, 16);
     };
 
     return (
@@ -153,28 +178,41 @@ const Page = () => {
                     </div>
                 </div>
 
-                <div className="flex gap-2 items-center text-white mt-7">
-                    <Link href="/main/parameters/kodepos">
-                        <button className="py-2 px-4 rounded-xl bg-red-400 flex gap-1 items-center">
-                            <MdOutlineCancel />
-                            <span>Cancel</span>
+                <div className="mt-3">
+                    <div className="flex gap-3 items-center">
+                        <label className="w-[220px]">Schedule Date</label>
+                        <input
+                            type="datetime-local"
+                            className="input input-sm input-bordered w-[220px]"
+                            value={scheduleInput}
+                            required
+                            min={getMinDateTime()}
+                            onChange={(e) => setScheduleInput(e.target.value)}
+                        />
+                    </div>
+                    <div className="flex gap-2 items-center text-white mt-7">
+                        <Link href="/main/parameters/kodepos">
+                            <button className="py-2 px-4 rounded-xl bg-red-400 flex gap-1 items-center">
+                                <MdOutlineCancel />
+                                <span>Cancel</span>
+                            </button>
+                        </Link>
+                        <button
+                            type="button"
+                            onClick={() => updateData()}
+                            className="py-2 px-4 rounded-xl bg-blue-500 flex gap-1 items-center"
+                        >
+                            <FiSave />
+                            {isLoading ? (
+                                <div className="flex justify-center gap-3">
+                                    <p>Please wait</p>
+                                    <span className="loading loading-spinner"></span>
+                                </div>
+                            ) : (
+                                <span className="font-semibold">Submit</span>
+                            )}
                         </button>
-                    </Link>
-                    <button
-                        type="button"
-                        onClick={() => updateData()}
-                        className="py-2 px-4 rounded-xl bg-blue-500 flex gap-1 items-center"
-                    >
-                        <FiSave />
-                        {isLoading ? (
-                            <div className="flex justify-center gap-3">
-                                <p>Please wait</p>
-                                <span className="loading loading-spinner"></span>
-                            </div>
-                        ) : (
-                            <span className="font-semibold">Submit</span>
-                        )}
-                    </button>
+                    </div>
                 </div>
             </form>
         </div>

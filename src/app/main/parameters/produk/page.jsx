@@ -1,5 +1,6 @@
 "use client";
 import { dummyBodyTable, dummyHeaderTable } from "@/assets/dummyData";
+import ButtonAddParameter from "@/components/ButtonAddParameter";
 import FormSearch from "@/components/FormSearch";
 import NotFound from "@/components/NotFound";
 import PleaseWait from "@/components/PleaseWait";
@@ -55,11 +56,9 @@ const Page = () => {
                         handleSubmit={handleSearch}
                     />
 
-                    <Link href={"/main/parameters/produk/edit/create"}>
-                        <button className="flex items-center gap-2 bg-blue-500 py-2 px-3 rounded-xl text-white">
-                            <FiPlus size={20} /> <p>Add</p>
-                        </button>
-                    </Link>
+                    <ButtonAddParameter
+                        link={"/main/parameters/produk/edit/create"}
+                    />
                 </div>
 
                 {dataProduk && !searchResult && (

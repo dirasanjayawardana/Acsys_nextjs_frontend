@@ -10,6 +10,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { FiLogOut } from "react-icons/fi";
 import axios from "axios";
 import PleaseWait from "./PleaseWait";
+import { IsSaOperator, IsSaSupervisor } from "@/validation/validateGroupAkses";
 
 const Sidebar = () => {
     const router = useRouter();
@@ -107,7 +108,7 @@ const Sidebar = () => {
                             </div>
                         ))}
 
-                        {sidebarAdmin.map((items, index) => (
+                        {(IsSaOperator() || IsSaSupervisor()) && sidebarAdmin.map((items, index) => (
                             <div key={index} className="">
                                 <h1 className="font-bold text-xl text-gray-500">
                                     {items.header}
@@ -150,7 +151,9 @@ const Sidebar = () => {
                     </div>
                 </div>
             ) : (
-                <PleaseWait />
+                <div className="flex items-start justify-center min-h-screen p-7">
+                    <PleaseWait />
+                </div>
             )}
         </div>
     );

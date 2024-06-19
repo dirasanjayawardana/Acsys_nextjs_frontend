@@ -4,9 +4,9 @@ const { createContext, useContext, useState } = require("react");
 export const stateContext = createContext();
 
 export const ContexProvider = ({ children }) => {
-    
     const [showSideBar, setShowSideBar] = useState(true);
     const [header, setHeader] = useState("Home");
+    const [userAplikasi, setUserAplikasi] = useState(null);
 
     return (
         <stateContext.Provider
@@ -15,6 +15,8 @@ export const ContexProvider = ({ children }) => {
                 setShowSideBar,
                 header,
                 setHeader,
+                userAplikasi,
+                setUserAplikasi,
             }}
         >
             {children}
