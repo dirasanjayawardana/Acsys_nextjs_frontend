@@ -7,6 +7,7 @@ export const ContexProvider = ({ children }) => {
     const [showSideBar, setShowSideBar] = useState(true);
     const [header, setHeader] = useState("Home");
     const [userAplikasi, setUserAplikasi] = useState(null);
+    const [user, setUser] = useState(null);
 
     return (
         <stateContext.Provider
@@ -17,6 +18,8 @@ export const ContexProvider = ({ children }) => {
                 setHeader,
                 userAplikasi,
                 setUserAplikasi,
+                user,
+                setUser,
             }}
         >
             {children}

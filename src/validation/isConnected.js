@@ -8,7 +8,7 @@ import { useStateContext } from "@/contexts/ContexProvider";
 export const IsConnected = ({ children }) => {
     const router = useRouter();
     const [loading, setLoading] = useState(true);
-    const { setUserAplikasi } = useStateContext();
+    const { setUserAplikasi, setUser } = useStateContext();
 
     useEffect(() => {
         const userid = document.cookie
@@ -26,6 +26,7 @@ export const IsConnected = ({ children }) => {
                         },
                     }
                 );
+                setUser(response.data.data);
                 if (response.data.data.status != 1) {
                     router.push("/login");
                 }

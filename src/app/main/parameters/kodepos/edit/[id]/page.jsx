@@ -99,7 +99,13 @@ const Page = () => {
                     {params.id === "create" ? "Add" : "Edit"} Parameter Kode Pos
                 </h1>
             </div>
-            <form className="mt-3 p-4 gap-3">
+            <form
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    updateData();
+                }}
+                className="mt-3 p-4 gap-3"
+            >
                 <div className="flex flex-col gap-3">
                     <div className="flex gap-3 items-center">
                         <label className="w-[220px]">Kode Pos</label>
@@ -198,8 +204,7 @@ const Page = () => {
                             </button>
                         </Link>
                         <button
-                            type="button"
-                            onClick={() => updateData()}
+                            type="submit"
                             className="py-2 px-4 rounded-xl bg-blue-500 flex gap-1 items-center"
                         >
                             <FiSave />
