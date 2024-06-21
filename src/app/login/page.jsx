@@ -21,31 +21,34 @@ const Page = () => {
         setIsLoading(true);
         setErrors(null);
         try {
-            const currentUserInfo = await axios.get(
-                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/secure/users`,
-                {
-                    headers: {
-                        "USER-ID": form.userid,
-                    },
-                }
+            await axios.post(
+                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/secure/login`,
+                form
             );
-
-            if (currentUserInfo.data.data.status == 1) {
-                document.cookie = `ACSYS-USERID=${form.userid}; expires=; path=/`;
-                router.push("/main");
-                setIsLoading(false);
-            } else {
+            document.cookie = `ACSYS-USERID=${form.userid}; expires=; path=/`;
+            router.push("/main");
+            setIsLoading(false);
+        } catch (error) {
+            if (error.response.data.errors === "userid already in use!") {
                 await axios.post(
-                    `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/secure/login`,
-                    form
+                    `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/secure/logout?userid=${form.userid}`
                 );
-                document.cookie = `ACSYS-USERID=${form.userid}; expires=; path=/`;
-                router.push("/main");
+                try {
+                    await axios.post(
+                        `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/secure/login`,
+                        form
+                    );
+                    document.cookie = `ACSYS-USERID=${form.userid}; expires=; path=/`;
+                    router.push("/main");
+                    setIsLoading(false);
+                } catch (error) {
+                    setErrors(error.response.data.errors);
+                    setIsLoading(false);
+                }
+            } else {
+                setErrors(error.response.data.errors);
                 setIsLoading(false);
             }
-        } catch (error) {
-            setErrors(error.response.data.errors);
-            setIsLoading(false);
         }
     };
 
