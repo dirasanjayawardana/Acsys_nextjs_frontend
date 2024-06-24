@@ -1,5 +1,6 @@
 "use client";
 import NotFound from "@/components/NotFound";
+import PleaseWait from "@/components/PleaseWait";
 import TableApprove from "@/components/status/TableApprove";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -31,16 +32,20 @@ const Page = () => {
 
     return (
         <div>
-            {dataLog && dataLog.length !==0 ? (
-                <TableApprove
-                    headers={Object.keys(dataLog[0]).slice(1)}
-                    data={dataLog}
-                    parameter={"cabang"}
-                    action={true}
-                    isRefresh={handleRefresh}
-                />
+            {dataLog ? (
+                dataLog.length !== 0 ? (
+                    <TableApprove
+                        headers={Object.keys(dataLog[0]).slice(1)}
+                        data={dataLog}
+                        parameter={"cabang"}
+                        action={true}
+                        isRefresh={handleRefresh}
+                    />
+                ) : (
+                    <NotFound />
+                )
             ) : (
-                <NotFound />
+                <PleaseWait />
             )}
         </div>
     );
