@@ -19,7 +19,6 @@ const Page = () => {
                 `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/secure/useracsys`
             );
             setDatauser(response.data.data);
-            console.log(response.data.data);
         } catch (error) {
             console.log(error);
         }

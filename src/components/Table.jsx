@@ -21,7 +21,7 @@ const Table = ({ headers, data, action, link }) => {
                         {(IsOperator() || IsSaOperator() || IsSaSupervisor()) && action && <th className="py-2 px-4 w-32">Action</th>}
 
                         {headers.map((item, index) => (
-                            <th key={index} className="py-3 px-6 capitalize">
+                            <th key={index} className="py-1 px-6 capitalize">
                                 {item}
                             </th>
                         ))}
@@ -36,7 +36,7 @@ const Table = ({ headers, data, action, link }) => {
                             } hover:bg-gray-100 text-xs leading-5`}
                         >
                             {(IsOperator() || IsSaOperator() || IsSaSupervisor()) && action && (
-                                <td className="py-3 px-6 w-32 flex items-center justify-center gap-3">
+                                <td className="py-1 px-6 w-32 flex items-center justify-center gap-3">
                                     <button
                                         type="button"
                                         onClick={() =>
@@ -53,7 +53,7 @@ const Table = ({ headers, data, action, link }) => {
                             )}
 
                             {headers.map((header, headerIndex) => (
-                                <td key={headerIndex} className="py-3 px-6">
+                                <td key={headerIndex} className="py-1 px-6">
                                     {item[header]}
                                 </td>
                             ))}

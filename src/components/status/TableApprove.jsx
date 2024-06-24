@@ -50,11 +50,11 @@ const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
                 <thead>
                     <tr className="border-b-2 bg-blue-300 text-sm">
                         {(IsSupervisor() || IsSaSupervisor()) && action && (
-                            <th className="py-2 px-4 w-32">Action</th>
+                            <th className="py-1 px-4 w-32">Action</th>
                         )}
 
                         {headers.map((item, index) => (
-                            <th key={index} className="py-3 px-6 capitalize">
+                            <th key={index} className="py-1 px-6 capitalize">
                                 {item}
                             </th>
                         ))}
@@ -69,7 +69,7 @@ const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
                             } hover:bg-gray-100 text-xs leading-5`}
                         >
                             {(IsSupervisor() || IsSaSupervisor()) && action && (
-                                <td className="py-3 px-6 w-36 flex items-center justify-center gap-5">
+                                <td className="py-1 px-6 w-36 flex items-center justify-center gap-5">
                                     <button
                                         type="button"
                                         onClick={() =>
@@ -120,7 +120,7 @@ const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
                             {headers.map((header, headerIndex) => (
                                 <td
                                     key={headerIndex}
-                                    className={`py-3 px-6 ${
+                                    className={`py-1 px-6 ${
                                         header === "statusApprovement" &&
                                         statusColor(item.statusApprovement)
                                     }`}
