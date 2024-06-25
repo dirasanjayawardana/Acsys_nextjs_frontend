@@ -20,7 +20,7 @@ const Header = () => {
     return (
         <div className="flex justify-between py-8 px-14">
             <div className="text-xl">
-                <h3 className="">Hello, <span className="font-bold capitalize">{user.username}</span></h3>
+                <h3 className="">Hello, <span className="font-bold capitalize">{user && user.username}</span></h3>
                 <h3 className="mt-2">
                     Acsys <span className="font-bold">- {header}</span>
                 </h3>

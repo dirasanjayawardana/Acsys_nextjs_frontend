@@ -9,9 +9,9 @@ const TableUser = ({ headers, data }) => {
         <div className="overflow-auto mx-auto">
             <table className="text-center border-b w-full">
                 <thead>
-                    <tr className="border-b-2 bg-blue-300 text-sm">
+                    <tr className="border-b-2 bg-blue-500 text-white text-sm">
                         {headers.map((item, index) => (
-                            <th key={index} className="py-2 px-6 capitalize">
+                            <th key={index} className="py-4 px-6 capitalize">
                                 {item}
                             </th>
                         ))}

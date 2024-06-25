@@ -8,7 +8,7 @@ const TableUserLog = () => {
     const [dataUserlog, setDataUserlog] = useState(null);
 
     const [currentPage, setCurrentPage] = useState(1);
-    const [perPage, setPerPage] = useState(10);
+    const [perPage, setPerPage] = useState(16);
 
     const paginateData = (data) => {
         const lastIndex = currentPage * perPage;
@@ -33,11 +33,11 @@ const TableUserLog = () => {
     const formatDateTime = (dateTimeString) => {
         const date = new Date(dateTimeString);
         const year = date.getFullYear();
-        const month = String(date.getMonth() + 1).padStart(2, '0');
-        const day = String(date.getDate()).padStart(2, '0');
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
-        const seconds = String(date.getSeconds()).padStart(2, '0');
+        const month = String(date.getMonth() + 1).padStart(2, "0");
+        const day = String(date.getDate()).padStart(2, "0");
+        const hours = String(date.getHours()).padStart(2, "0");
+        const minutes = String(date.getMinutes()).padStart(2, "0");
+        const seconds = String(date.getSeconds()).padStart(2, "0");
         return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
     };
 
@@ -57,12 +57,12 @@ const TableUserLog = () => {
                 <div className="">
                     <table className="w-full text-center mt-5 text-sm">
                         <thead>
-                            <tr className="border-b-2 bg-blue-300">
-                                <th className="py-2 px-4">No</th>
-                                <th className="py-2 px-4">Login Time</th>
-                                <th className="py-2 px-4">Status</th>
-                                <th className="py-2 px-4">UserId</th>
-                                <th className="py-2 px-4">Group Akses</th>
+                            <tr className="border-b-2 bg-blue-500 text-white">
+                                <th className="py-4 px-4">No</th>
+                                <th className="py-4 px-4">Login Time</th>
+                                <th className="py-4 px-4">Status</th>
+                                <th className="py-4 px-4">UserId</th>
+                                <th className="py-4 px-4">Group Akses</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -75,11 +75,23 @@ const TableUserLog = () => {
                                             : "bg-blue-100"
                                     } hover:bg-gray-100`}
                                 >
-                                    <td className="py-2 px-4">{currentPage + index}</td>
-                                    <td className="py-2 px-4">{formatDateTime(item.loginTime)}</td>
-                                    <td className={`py-2 px-4 text-start ${statusColor(item.loginStatus)}`}>{item.loginStatus}</td>
+                                    <td className="py-2 px-4">
+                                        {((currentPage * perPage) - perPage) + (index + 1)}
+                                    </td>
+                                    <td className="py-2 px-4">
+                                        {formatDateTime(item.loginTime)}
+                                    </td>
+                                    <td
+                                        className={`py-2 px-4 text-start ${statusColor(
+                                            item.loginStatus
+                                        )}`}
+                                    >
+                                        {item.loginStatus}
+                                    </td>
                                     <td className="py-2 px-4">{item.userid}</td>
-                                    <td className="py-2 px-4">{item.groupAkses}</td>
+                                    <td className="py-2 px-4">
+                                        {item.groupAkses}
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
@@ -96,7 +108,8 @@ const TableUserLog = () => {
                         <h5 className="font-semibold">{currentPage}</h5>
                         <button
                             disabled={
-                                currentPage === Math.ceil(dataUserlog.length / perPage)
+                                currentPage ===
+                                Math.ceil(dataUserlog.length / perPage)
                             }
                             onClick={() => setCurrentPage(currentPage + 1)}
                             className="py-2 px-4 rounded-xl bg-blue-500 text-white"

@@ -48,13 +48,13 @@ const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
         <div className="overflow-auto mx-auto">
             <table className="text-center border-b cursor-pointer">
                 <thead>
-                    <tr className="border-b-2 bg-blue-300 text-sm">
+                    <tr className="border-b-2 bg-blue-500 text-white text-sm">
                         {(IsSupervisor() || IsSaSupervisor()) && action && (
-                            <th className="py-1 px-4 w-32">Action</th>
+                            <th className="py-4 px-4 w-32">Action</th>
                         )}
 
                         {headers.map((item, index) => (
-                            <th key={index} className="py-1 px-6 capitalize">
+                            <th key={index} className="py-4 px-3 capitalize">
                                 {item}
                             </th>
                         ))}
@@ -69,7 +69,7 @@ const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
                             } hover:bg-gray-100 text-xs leading-5`}
                         >
                             {(IsSupervisor() || IsSaSupervisor()) && action && (
-                                <td className="py-1 px-6 w-36 flex items-center justify-center gap-5">
+                                <td className="py-1 px-3 w-36 flex items-center justify-center gap-5">
                                     <button
                                         type="button"
                                         onClick={() =>
@@ -120,7 +120,7 @@ const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
                             {headers.map((header, headerIndex) => (
                                 <td
                                     key={headerIndex}
-                                    className={`py-1 px-6 ${
+                                    className={`py-1 px-3 ${
                                         header === "statusApprovement" &&
                                         statusColor(item.statusApprovement)
                                     }`}

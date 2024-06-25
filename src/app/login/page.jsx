@@ -29,7 +29,7 @@ const Page = () => {
             router.push("/main");
             setIsLoading(false);
         } catch (error) {
-            if (error.response.data.errors === "userid already in use!") {
+            if (error.response.data?.errors === "userid already in use!") {
                 await axios.post(
                     `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/secure/logout?userid=${form.userid}`
                 );
