@@ -59,6 +59,14 @@ const Page = () => {
         isKordinatorKliring: "",
     });
 
+    const [dataEmail, setDataEmail] = useState({
+        to: "",
+        subject: "Test Subject Deadline H-1",
+        text: "",
+        deadline: "",
+        scheduleAt: "",
+    });
+
     useEffect(() => {
         if (params.id !== "create") {
             const getCurrentData = async () => {
@@ -89,18 +97,37 @@ const Page = () => {
                     deadline: calculateDeadline(scheduleInput),
                     scheduleAt: convertDateToCron(scheduleInput),
                     statusApprovement: "PENDING",
-                },
-                {
-                    headers: {
-                        "Content-Type": "application/json",
-                        "USER-ID": userid,
-                    },
                 }
             );
+
+            await axios.post(
+                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/schedule-email`,
+                {
+                    ...dataEmail,
+                    text: `
+        Assalamualaikum Warahmatullahi Wabarakatuh, 
+        Yth. Bapak/Ibu,
+
+        Dengan ini kami memberitahukan bahwa ada parameter yang telah ditambah / diubah pada Website Paramater Acsys pada:
+
+        Tanggal Submit: ${submitAtDate()}
+        Tanggal Schedule: ${convertScheduleAt(scheduleInput)}
+        Tanggal Deadline: ${calculateDeadline(scheduleInput)}
+        Website: http://localhost:3000/main
+
+        Mohon ketersediannya untuk mengecek dan menyetujui jika memang data yang ditambah/diubah sudah benar pada website Acsys, atas bantuan dan kerjasamanya kami ucapkan Terima Kasih.
+        
+        Wassalamualaikum Warahmatullahi Wabarakatuh,`,
+                    deadline: calculateDeadline(scheduleInput),
+                    scheduleAt: convertScheduleAt(scheduleInput),
+                }
+            );
+
             router.push("/main/parameters/cabang");
             setIsLoading(false);
         } catch (error) {
             console.error("Error:", error);
+            setIsLoading(false);
         }
     };
 
@@ -118,29 +145,41 @@ const Page = () => {
     const calculateDeadline = (date) => {
         const d = new Date(date);
         d.setDate(d.getDate() - 1);
-    
-        const day = String(d.getDate()).padStart(2, '0');
-        const month = String(d.getMonth() + 1).padStart(2, '0');
+
+        const day = String(d.getDate()).padStart(2, "0");
+        const month = String(d.getMonth() + 1).padStart(2, "0");
         const year = d.getFullYear();
-        const hours = String(d.getHours()).padStart(2, '0');
-        const minutes = String(d.getMinutes()).padStart(2, '0');
-        const seconds = String(d.getSeconds()).padStart(2, '0');
-    
+        const hours = String(d.getHours()).padStart(2, "0");
+        const minutes = String(d.getMinutes()).padStart(2, "0");
+        const seconds = String(d.getSeconds()).padStart(2, "0");
+
         return `${day}/${month}/${year}, ${hours}:${minutes}:${seconds}`;
     };
 
     const submitAtDate = () => {
         const d = new Date();
-        const day = String(d.getDate()).padStart(2, '0');
-        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, "0");
+        const month = String(d.getMonth() + 1).padStart(2, "0");
         const year = d.getFullYear();
-        const hours = String(d.getHours()).padStart(2, '0');
-        const minutes = String(d.getMinutes()).padStart(2, '0');
-        const seconds = String(d.getSeconds()).padStart(2, '0');
-    
+        const hours = String(d.getHours()).padStart(2, "0");
+        const minutes = String(d.getMinutes()).padStart(2, "0");
+        const seconds = String(d.getSeconds()).padStart(2, "0");
+
         return `${day}/${month}/${year}, ${hours}:${minutes}:${seconds}`;
-    }
-    
+    };
+
+    const convertScheduleAt = (date) => {
+        const d = new Date(date);
+        const day = String(d.getDate()).padStart(2, "0");
+        const month = String(d.getMonth() + 1).padStart(2, "0");
+        const year = d.getFullYear();
+        const hours = String(d.getHours()).padStart(2, "0");
+        const minutes = String(d.getMinutes()).padStart(2, "0");
+        const seconds = String(d.getSeconds()).padStart(2, "0");
+
+        return `${day}/${month}/${year}, ${hours}:${minutes}:${seconds}`;
+    };
+
     const getMinDateTime = () => {
         const now = new Date();
         now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
@@ -688,6 +727,24 @@ const Page = () => {
                                 min={getMinDateTime()}
                                 onChange={(e) =>
                                     setScheduleInput(e.target.value)
+                                }
+                            />
+                        </div>
+                        <div className="flex gap-3 items-center mt-3">
+                            <label className="w-[220px]">
+                                Email Supervisor
+                            </label>
+                            <input
+                                type="email"
+                                className="input input-sm input-bordered w-[220px]"
+                                placeholder="Email Supervisor"
+                                value={dataEmail.to}
+                                required
+                                onChange={(e) =>
+                                    setDataEmail({
+                                        ...dataEmail,
+                                        to: e.target.value,
+                                    })
                                 }
                             />
                         </div>
