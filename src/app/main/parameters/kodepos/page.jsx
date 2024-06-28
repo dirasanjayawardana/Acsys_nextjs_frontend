@@ -134,7 +134,7 @@ const Page = () => {
                         headers={Object.keys(searchResult[0]).slice(1)}
                         data={searchResult}
                         action={true}
-                        link={"#"}
+                        link={"/main/parameters/kodepos/"}
                     />
                 </div>
             )}

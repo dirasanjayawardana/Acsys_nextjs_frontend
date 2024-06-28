@@ -1,6 +1,7 @@
 "use client";
 import NotFound from "@/components/NotFound";
 import PleaseWait from "@/components/PleaseWait";
+import TabSelectStatus from "@/components/status/TabSelectStatus";
 import TableApprove from "@/components/status/TableApprove";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
@@ -8,16 +9,17 @@ import React, { useEffect, useState } from "react";
 const Page = () => {
     const [dataLog, setDataLog] = useState(null);
     const [refresh, setRefresh] = useState(false);
+    const [selectedStatus, setSelectedStatus] = useState("PENDING");
 
     useEffect(() => {
         getAllDataLog();
-    }, [refresh]);
+    }, [refresh, selectedStatus]);
 
     const getAllDataLog = async () => {
         setDataLog(null);
         try {
             const response = await axios.get(
-                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/kodepos/log`
+                `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/kodepos/log/find?status-approvement=${selectedStatus}`
             );
             setDataLog(response.data.data);
         } catch (error) {
@@ -31,6 +33,7 @@ const Page = () => {
     };
     return (
         <div>
+            <TabSelectStatus selectedData={selectedStatus} setSelectedData={setSelectedStatus} />
             {dataLog ? (
                 dataLog.length !== 0 ? (
                     <TableApprove

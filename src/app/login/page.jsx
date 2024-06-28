@@ -29,7 +29,7 @@ const Page = () => {
             router.push("/main");
             setIsLoading(false);
         } catch (error) {
-            if (error.response.data?.errors === "userid already in use!") {
+            if (error.response?.data?.errors === "userid already in use!") {
                 await axios.post(
                     `${process.env.NEXT_PUBLIC_ACSYS_URL_SERVER}/secure/logout?userid=${form.userid}`
                 );
@@ -46,7 +46,7 @@ const Page = () => {
                     setIsLoading(false);
                 }
             } else {
-                setErrors(error.response.data.errors);
+                setErrors(error.response?.data?.errors);
                 setIsLoading(false);
             }
         }
@@ -92,7 +92,7 @@ const Page = () => {
                         </div>
                         <form>
                             <input
-                                type="text"
+                                type="password"
                                 placeholder="Password"
                                 className="py-2 px-4 rounded-lg w-full text-black"
                                 onChange={(e) =>

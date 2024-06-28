@@ -2,12 +2,11 @@
 import { useStateContext } from "@/contexts/ContexProvider";
 import { IsSaSupervisor, IsSupervisor } from "@/validation/validateGroupAkses";
 import axios from "axios";
-import React from "react";
+import React, { useState } from "react";
 import { FiCheckSquare, FiXSquare } from "react-icons/fi";
 
 const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
-    const { userAplikasi } = useStateContext();
-
+    
     const handleStatusApprove = async (id, status) => {
         isRefresh();
         try {
@@ -46,7 +45,7 @@ const TableApprove = ({ headers, data, parameter, action, isRefresh }) => {
 
     return (
         <div className="overflow-auto mx-auto">
-            <table className="text-center border-b cursor-pointer">
+            <table className="text-center border-b cursor-pointer min-w-full">
                 <thead>
                     <tr className="border-b-2 bg-blue-500 text-white text-sm">
                         {(IsSupervisor() || IsSaSupervisor()) && action && (
