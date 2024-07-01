@@ -7,7 +7,7 @@ const SearchBar = () => {
         <div className="bg-gray-200 py-3 px-4 rounded-xl flex justify-between items-center text-blue-500">
             <div className="flex items-center gap-2">
                 <BsGrid size={24} />
-                <p className="text-xl">Kofigurasi Paramter</p>
+                <p className="text-xl">Kofigurasi Parameter</p>
             </div>
             <form className="flex items-center gap-3">
                 <input
