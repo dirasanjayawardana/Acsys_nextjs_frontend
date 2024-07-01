@@ -15,7 +15,7 @@ const Page = () => {
     });
     const [errors, setErrors] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [isAgree, setIsAgree] = useState(false);
+    const [isAgree, setIsAgree] = useState(true);
 
     const handleLogin = async () => {
         setIsLoading(true);
@@ -53,12 +53,12 @@ const Page = () => {
     };
 
     return (
-        <div className="bg-gray-300 min-h-[100vh] flex justify-center text-white pt-10">
+        <div className="bg-gray-300 min-h-[100vh] flex justify-center text-white pt-28">
             <div className="w-[580px] h-[604px] flex flex-col items-center -mt-5">
                 <div className="w-[300px]">
                     <Image src={logo} alt="Acsys" />
                 </div>
-                <div className="w-[420px] h-[504px] bg-white rounded-2xl -mt-5 shadow-lg p-8">
+                <div className="w-[420px] h-[340px] bg-white rounded-2xl -mt-5 shadow-lg p-8">
                     {errors && (
                         <div className="text-red-500 font-semibold text-sm ml-3 mb-1">
                             <p>* {errors}</p>
@@ -105,7 +105,7 @@ const Page = () => {
                         </form>
                     </div>
 
-                    <div className="bg-gray-500 mt-5 rounded-xl p-8 py-6 flex items-center gap-5">
+                    {/* <div className="bg-gray-500 mt-5 rounded-xl p-8 py-6 flex items-center gap-5">
                         <form>
                             <input
                                 type="checkbox"
@@ -117,7 +117,7 @@ const Page = () => {
                         <p className="-mt-[6px]">
                             I accept the terms and user agreement
                         </p>
-                    </div>
+                    </div> */}
                 </div>
 
                 <button
